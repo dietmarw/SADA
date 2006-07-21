@@ -31,16 +31,28 @@
 	%Setzt die Titelseite
 	\titelseite[Dietmar Winkler \& Thomas Liebezeit\\ \# 123\,456 \qquad \# 123\,457]{Vorlage für Studien- und Diplomarbeiten}
 		{Anleitung für die Benutzung}
-		{}
+		{\today}
 
 	%Erzeugt das Inhaltsverzeichnis (inkl. Link in der pdf-Datei)
 	\inhaltsverzeichnis
 	
 	%Erzeugen der Seite mit den Formelzeichen
 	\begin{formelzeichen}
-		$\theta$& Ein Formelzeichen.\\
+		$\theta$ & Ein Formelzeichen.\\
 		A & Eine Matrix.\\
 	\end{formelzeichen}
+
+ %Erzeugen der Seite mit den Abkürzungen
+	\begin{abkuerzungen}
+		ADU oder A/D	& Analog-Digital-Umsetzer \\
+		CMR						& Common Mode Rejection \\
+		DMS						& Dehnungsmessstreifen \\
+		OT 						& Oberster Totpunkt \\
+		OP						& Operationsverstärker \\
+		I/O						& Input-Output Schnittstelle \\
+		MUX						& Multiplexer\\
+		S\&H					& Sample-and-Hold-Baustein	\\	
+	\end{abkuerzungen}
 	
 	%Schaltet auf arabische Seitenzahlen um.
 	\mainmatter
@@ -90,8 +102,8 @@
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={1-1,26-27,29-30,32-35,37-38,40-44,46-47,49-49,226-226}]{MDT-SADA.tex}%
-	
+			\lstinputlisting[linerange={1-1,26-27,29-30,32-34,37-37,40-44,46-48,55-55,58-58,61-61,251-251}]{MDT-SADA.tex}%
+	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
 			Die Klasse ist primär für die Verwendung von pdflatex ausgelegt, bei dem als Ausgabe pdf"=Dateien erzeugt werden.
@@ -200,7 +212,7 @@
 					Parameter vier enthält den Dateinamen des zweiten Bildes. 
 					Der fünfte Parameter beinhaltet die Bildunterschrift des zweiten Bildes und der sechste seine Formatierung.
 					
-\doppelbild{TU-logo_gruen}{Das Logo der TU Berlin.}{width=\textwidth}{TU-logo_gruen}{Das Logo der Technischen Universität Berlin}{width=\textwidth}
+				\doppelbild{TU-logo_gruen}{Das Logo der TU Berlin.}{width=\textwidth}{TU-logo_gruen}{Das Logo der Technischen Universität Berlin}{width=\textwidth}
 					\begin{beispiel}{}
 						Für die Darstellung des folgenden Doppelbildes wurde der Befehl \befehl[no]{doppelbild\{TU-logo\_gruen\}\{Das Logo der TU Berlin.\}\{width=\befehl[no]{textwidth}\}\{TU-logo\_gruen\}\{Das Logo der Technischen Universität Berlin\}\{width=\befehl[no]{textwidth}\}} verwendet.
 					\end{beispiel}
@@ -215,7 +227,7 @@
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{220-222}
+				\begin{beispiel}{245-247}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}
@@ -231,7 +243,7 @@
 				\end{itemize}
 	% Dummy Literaturverzeichnis
 	\begin{literaturverzeichnis}
-		\bibitem{Test}Winkler, D.; Liebezeit, Th.\\\emph{Vorlage für Scripte - Anleitung für die Benutzung}\\MDT 2005 (unveröffentlicht)
+		\bibitem{Test}Winkler, D.; Liebezeit, Th.\\\emph{Vorlage für Studien- und Diplomarbeiten - Anleitung für die Benutzung}\\MDT 2006 (unveröffentlicht)
 	\end{literaturverzeichnis}
 
 	% Index

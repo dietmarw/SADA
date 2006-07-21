@@ -231,7 +231,21 @@
 	\setlength{\FormelTabellenWeite}{\textwidth}%
 	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
 	\chapter*{Formelzeichen}%
-	\extraBookmark{Formelzeichen}{abranc}%
+	\extraBookmark{Formelzeichen}{formulaanc}%
+	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
+}{%
+	\end{longtable}%
+	\@openrighttrue%
+	\clearmydoublepage
+}%
+
+\newenvironment{abkuerzungen}[1][0.2]
+{%
+	\@openrightfalse%
+	\setlength{\FormelTabellenWeite}{\textwidth}%
+	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
+	\chapter*{Glossar}%
+	\extraBookmark{Glossar}{abranc}%
 	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
 	\end{longtable}%
