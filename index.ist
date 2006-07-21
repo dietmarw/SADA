@@ -1,0 +1,46 @@
+% index -test
+%
+%
+line_max	72
+indent_length	16
+
+group_skip	"\\par
+		\\vspace{6pt plus 2pt minus 2pt}"
+%		\\vspace{8pt}\\rule{0.4\\columnwidth}{0.4mm}
+%		\\vspace{5pt plus 2pt minus 2pt}"
+
+headings_flag	1
+heading_prefix "\\vspace{12pt} \\textbf{"
+heading_suffix "}\\vspace{3pt}"
+
+preamble	"\\begin{theindex}\n
+		\\def\\subitem{\\par\\leavevmode
+			\\hangindent-40pt
+			-\\hspace{3pt}}
+		\\def\\subsubitem{\\par\\leavevmode
+			\\hangindent-40pt
+			\\hspace{6pt}\\hspace{6pt}
+			\\hspace{8pt}}"
+
+delim_0		"}\\dotfill"
+%\\hspace{1mm}"
+delim_1		"}\\dotfill"
+%,\\hspace{1mm}"
+delim_2		"}\\dotfill"
+%,\\hspace{1mm}"
+%delim_n		"}\\dotfill"
+
+item_0 "\n \\item {"
+
+item_1 "\n \\subitem {\\small "
+item_01 "\n \\subitem {\\small "
+item_x1 "}\n \\subitem {\\small "
+
+item_2 "\n \\subsubitem {\\small "
+item_12 "\n \\subsubitem {\\small "
+item_x2 "}\n \\subsubitem {\\small "
+
+%with this in print version (problems with hyperlinks)
+%suffix_2p "f."
+%suffix_3p "ff."
+%suffix_mp "ff."

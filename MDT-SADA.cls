@@ -1,0 +1,264 @@
+%%****************************************
+%%*                                      *
+%%* TU Berlin                            *
+%%* MDT                                  *
+%%*                                      *
+%%****************************************
+%%
+%% LaTeX-Vorlage fuer
+%% MDT
+%% Version: $Revision: 1.1 $
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{MDT-SADA}[21/07/2006 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
+\LoadClass[halfparskip,DIV12,BCOR1cm]{scrbook}
+
+%Auswertung der Paketoptionen
+%Behandlung der pdf-Option. Dies wird eingeführt, um Übersetzungszeit
+%zu sparen, wenn nur ein .ps erzeugt werden soll.
+
+\ifpdfoutput{
+	\RequirePackage[pdftex]{graphicx}
+}{%\else
+	\RequirePackage[dvips]{graphicx}
+}%\fi
+\graphicspath{{logos/}{bilder/}}
+
+%nologo-Option
+\newcommand{\MDTlogo}{\includegraphics[height=2cm]{MDT-logo}}
+\newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
+\ifpdfoutput{}{%
+	\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}
+	\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}
+}
+
+\newif\if@nologo
+\@nologofalse
+\DeclareOption{nologo} {%
+  \@nologotrue%
+  \renewcommand{\MDTlogo}{}%
+  \renewcommand{\TUlogo}{}%
+}%
+	
+\newif\if@onlytoc
+\@onlytocfalse
+\DeclareOption{onlytoc}{\@onlytoctrue}
+
+\newcommand{\extraBookmark}[2]{\ifpdfoutput{\pdfbookmark[1]{#1}{#2}}{}}
+\newif\if@print
+\@printfalse
+\DeclareOption{print}{%
+	\@printtrue%
+	\renewcommand{\extraBookmark}[2]{}%
+}%
+
+\newcommand{\RequireIndex}{}
+\newif\if@index
+\@indexfalse
+\DeclareOption{index} {%
+  \@nologotrue%
+  \renewcommand{\RequireIndex}{\RequirePackage{makeidx}\makeindex}%
+}%
+
+
+%Alle uebrigen Optionen werden an scrartcl weitergereicht
+\DeclareOption*{%
+    \typeout{Option \CurrentOption\space is passed to package scrbook!}
+    \PassOptionsToPackage{\CurrentOption}{scrbook}
+}%
+\ProcessOptions\relax
+
+%%%
+%Die allgemein benötigten packages
+\ifpdfoutput{
+	\RequirePackage[T1]{fontenc}
+	\RequirePackage{ae}
+	\RequirePackage[latin1]{inputenc}
+	\if@print
+		% nothing
+	\else
+		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+	\fi
+}{%\else
+	\RequirePackage[T1]{fontenc}
+	\RequirePackage[latin1]{inputenc}
+	\RequirePackage[dvips]{hyperref}
+}%\fi
+\RequirePackage{ifthen}
+\RequirePackage{url}
+\RequirePackage[automark]{scrpage2}
+\RequirePackage[ngerman]{babel}
+%\RequirePackage{lastpage}
+%\RequirePackage[ngerman,num]{isodate}
+\RequirePackage{longtable}
+\RequirePackage{caption2} % für einzugslose Captions
+%Umbruch auch an Unterstrichen
+%\lccode`\_=`\_
+\RequireIndex
+
+
+%Redefinitionen---------------------------------
+%Literaturverzeichnis statt nur Literatur
+%\renewcommand{\refname}{Literaturverzeichnis}
+ \AtBeginDocument{\renewcommand*\figurename{Bild}} 
+%\renewcommand{\figurename}{Bild}
+
+%Umgebungen------------------------------------
+\newcommand{\includeBild}[3]{%
+\ifthenelse%
+		{\equal{#1}{}}%
+		{\mbox{\parbox[b][5cm][c]{0.7\textwidth}{\begin{center}no picture\end{center}}}}%
+		{\ifpdfoutput{%
+			\mbox{\includegraphics[#3]{#1}}%
+			}{%
+			\mbox{\parbox[b][5cm][c]{0.7\textwidth}{%
+				\begin{center}%
+					\path{#1.{pdf,png,jpg}}\bigskip\\{\footnotesize(nicht in \jobname.dvi)}%
+				\end{center}%
+				}%
+			}%
+			}%
+		}%
+        \setlength{\captionindent}{0pt} % on indentation        
+	\caption{#2}%
+	\ifthenelse%
+		{\equal{#1}{}}%
+		{}%
+		{\label{fig:#1}}%
+}
+
+\newcommand{\bild}[3]{%
+\begin{figure}[htb]%
+	\centering%
+	\includeBild{#1}{#2}{#3}
+\end{figure}%
+}
+
+\newcommand{\bildHere}[3]{%
+\begin{figure}[h!]%
+	\centering%
+	\includeBild{#1}{#2}{#3}
+\end{figure}%
+}
+
+ \newcommand{\doppelbild}[6]{%
+\begin{figure}%
+\begin{minipage}[t]{.45\textwidth}%
+\centering%
+  \includeBild{#1}{#2}{#3}%
+\end{minipage}%
+~\hfill~%
+\begin{minipage}[t]{.45\textwidth}%
+  \includeBild{#4}{#5}{#6}%
+\end{minipage}%
+\end{figure}%
+}
+
+
+
+%\newcommand{\maxHight}{0.925\textheight}
+%\newcommand{\maxWidth}{0.5\textheight}
+
+
+%\newcommand{\var}[1]{'\texttt{#1}'}
+%\newcommand{\myitem}[1]{\item \textbf{#1}}
+
+
+% Zähler für Zeilennnummerierungen in Tablellen
+\newcounter{internal_tbl_cnt}[table]
+\newcommand{\tblrow}{\refstepcounter{internal_tbl_cnt}\arabic{internal_tbl_cnt}.}
+
+% #1 Titel
+% #2 Untertitel
+% #3 Jahr
+% [#4] Autor
+\newcommand{\titelseite}[4][Vorname Nachname\\ \# Matrikelnummer]{%
+	\extraBookmark{Titelseite}{titleanc}%
+	\thispagestyle{empty}
+	\begin{titlepage}
+        \MDTlogo\hfill\TUlogo\\
+	\vfill%
+	\begin{center}%
+	  %Titel und Untertitel%
+	  {\textbf{{\Huge #2}\ifthenelse{\equal{#3}{}}{}{\\{\vspace*{3ex}\LARGE #3}}}}%
+          \\[6ex]
+            {\Large #1}\\
+	    \vfill
+	        {\LARGE #4}
+                \vfill
+                    {\Large
+                      Technische Universität Berlin\\
+                      Fakultät IV -- Elektrotechnik und Informatik\\
+                      Institut für Energie- und Automatisierungstechnik\\
+	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\
+                    }        
+        \end{center}%
+        
+        \end{titlepage}
+	%\newpage
+	\makeHead{#4}
+}
+
+
+\newcommand{\inhaltsverzeichnis}
+{%
+	\tableofcontents%
+	\extraBookmark{Inhaltsverzeichnis}{tocanc}%
+	\if@onlytoc\clearmydoublepage\else\fi%
+}
+
+\newcommand{\makeHead}[1]
+{%
+	\clearscrheadfoot%
+	%\renewcommand{\headfont}{\normalfont\sffamily\bfseries}%
+	\lehead{\leftmark}%
+        \rohead{\rightmark}%
+        \ifoot{#1}
+	\ofoot{\pagemark}%
+	%\setheadsepline{.4pt}%
+	%\automark{subsection}%
+	\pagestyle{scrheadings}%
+	\deftripstyle{myChapterStyle}{}{}{}{#1}{}{\pagemark}
+	\renewcommand*{\chapterpagestyle}{myChapterStyle}
+}
+
+\newcommand{\clearmydoublepage}{\newpage{\pagestyle{myChapterStyle}\cleardoublepage}}
+
+\newlength{\FormelTabellenWeite}
+\newenvironment{formelzeichen}[1][0.1]
+{%
+	\@openrightfalse%
+	\setlength{\FormelTabellenWeite}{\textwidth}%
+	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
+	\chapter*{Formelzeichen}%
+	\extraBookmark{Formelzeichen}{abranc}%
+	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
+}{%
+	\end{longtable}%
+	\@openrighttrue%
+	\clearmydoublepage
+}%
+
+\newenvironment{literaturverzeichnis}
+{\begin{thebibliography}{99}%
+	\addcontentsline{toc}{chapter}{Literatur}%
+%	\extraBookmark{Literatur}{litanc}
+}
+{\end{thebibliography}}
+
+\newcommand{\indexverzeichnis}{%
+	%\ifthenelse{\equal{\RequireIndex}{}}
+		%{Fehler erzeugen, oder nix}
+		%{untenstehende Befehle}
+	\cleardoublepage%
+	\phantomsection%
+	\addcontentsline{toc}{chapter}{Index}%
+	\printindex%
+}
+	
+% Abstand der Paragraphen
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5mm }
+
+%erste Version (abgeleitet von wise/ TU Dresden).
+%
