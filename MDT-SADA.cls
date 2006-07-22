@@ -168,10 +168,10 @@
 \newcounter{internal_tbl_cnt}[table]
 \newcommand{\tblrow}{\refstepcounter{internal_tbl_cnt}\arabic{internal_tbl_cnt}.}
 
-% #1 Titel
-% #2 Untertitel
-% #3 Jahr
-% [#4] Autor
+% [#1] Autor
+% #2 Titel
+% #3 Untertitel
+% #4 Jahr
 \newcommand{\titelseite}[4][Vorname Nachname\\ \# Matrikelnummer]{%
 	\extraBookmark{Titelseite}{titleanc}%
 	\thispagestyle{empty}
@@ -196,7 +196,7 @@
         
         \end{titlepage}
 	%\newpage
-	\makeHead{#4}
+	\makeHead{#1}
 }
 
 
