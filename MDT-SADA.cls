@@ -134,12 +134,14 @@
 \end{figure}%
 }
 
-\newcommand{\bildHere}[3]{%
-\begin{figure}[h!]%
+
+\newcommand{\bildhier}[3]{%
+\begin{figure}[!ht]%
 	\centering%
 	\includeBild{#1}{#2}{#3}
 \end{figure}%
 }
+
 
  \newcommand{\doppelbild}[6]{%
 \begin{figure}%
