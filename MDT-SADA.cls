@@ -7,7 +7,13 @@
 %%
 %% LaTeX-Vorlage fuer
 %% MDT
-%% Version: $Revision: 1.1 $
+%%**************************************************************
+%% Version: filename    rev date       time     last modified by
+%%     $Id$ 
+%%**************************************************************
+%% (The "Id" tag above is update automatically if 
+%% 	svn propset svn:keywords "Id" <filename>
+%% was set.)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{MDT-SADA}[21/07/2006 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
