@@ -17,7 +17,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{MDT-SADA}[21/07/2006 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
-\LoadClass[halfparskip,DIV12,BCOR1cm]{scrbook}
+\LoadClass[halfparskip,DIV13,BCOR2cm]{scrbook}
 
 %Auswertung der Paketoptionen
 %Behandlung der pdf-Option. Dies wird eingeführt, um Übersetzungszeit
@@ -102,6 +102,7 @@
 %\lccode`\_=`\_
 \RequireIndex
 
+\addtolength{\voffset}{0.7cm}
 
 %Redefinitionen---------------------------------
 %Literaturverzeichnis statt nur Literatur
@@ -180,31 +181,43 @@
 % #2 Titel
 % #3 Untertitel
 % #4 Jahr
-\newcommand{\titelseite}[4][Vorname Nachname\\ \# Matrikelnummer]{%
+% #5 Betreuer
+\newcommand{\titelseite}[6]{%
 	\extraBookmark{Titelseite}{titleanc}%
-	\thispagestyle{empty}
-	\begin{titlepage}
-        \MDTlogo\hfill\TUlogo\\
+	\thispagestyle{empty}%
+	\begin{titlepage}%
+        \MDTlogo\hfill\TUlogo\\%
 	\vfill%
 	\begin{center}%
 	  %Titel und Untertitel%
-	  {\textbf{{\Huge #2}\ifthenelse{\equal{#3}{}}{}{\\{\vspace*{3ex}\LARGE #3}}}}%
-          \\[6ex]
-            {\Large #1}\\
-	    \vfill
-	        {\LARGE #4}
-                \vfill
-                    {\Large
-                      Technische Universität Berlin\\
-                      Fakultät IV -- Elektrotechnik und Informatik\\
-                      Institut für Energie- und Automatisierungstechnik\\
-	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\
-                    }        
+	  {\textbf{{\Huge #3}\ifthenelse{\equal{#4}{}}{}{\\{\vspace*{3ex}\LARGE #4}}}}%
+          \\[6ex]%
+            {\Large #1\\ \# #2}\\%
+	    \vfill%
+	    \vfill%
+	        {\LARGE #5}\\%
+		\vfill%
+		\begin{minipage}[t]{0.25\textwidth}%
+			\flushright\Large%
+			Betreuer:~%
+		\end{minipage}%
+		\vspace{0pt}~%
+		\begin{minipage}[t]{0.45\textwidth}%
+			\flushleft\Large%
+			#6%
+		\end{minipage}%
+                \vfill%
+                    {\Large%
+                      Technische Universität Berlin\\%
+                      Fakultät IV -- Elektrotechnik und Informatik\\%
+                      Institut für Energie- und Automatisierungstechnik\\%
+	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
+                    }%
         \end{center}%
-        
-        \end{titlepage}
+%
+        \end{titlepage}%
 	%\newpage
-	\makeHead{#1}
+	\makeHead{#1, \#\,#2}%
 }
 
 

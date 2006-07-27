@@ -36,9 +36,10 @@
 	\frontmatter
 	
 	%Setzt die Titelseite
-	\titelseite[Dietmar Winkler \& Thomas Liebezeit\\ \# 123\,456 \qquad \# 123\,457]{Vorlage für Studien- und Diplomarbeiten}
+	\titelseite{Dietmar Winkler}{Thomas Liebezeit}{Vorlage für Studien- und Diplomarbeiten}
 		{Anleitung für die Benutzung}
 		{\today}
+		{N.N.}
 
 	%Erzeugt das Inhaltsverzeichnis (inkl. Link in der pdf-Datei)
 	\inhaltsverzeichnis 
@@ -52,13 +53,13 @@
  %Erzeugen der Seite mit den Abkürzungen
 	\begin{abkuerzungen}
 		ADU oder A/D	& Analog-Digital-Umsetzer \\
-		CMR						& Common Mode Rejection \\
-		DMS						& Dehnungsmessstreifen \\
-		OT 						& Oberster Totpunkt \\
-		OP						& Operationsverstärker \\
-		I/O						& Input-Output Schnittstelle \\
-		MUX						& Multiplexer\\
-		S\&H					& Sample-and-Hold-Baustein	\\	
+		CMR	& Common Mode Rejection \\
+		DMS	& Dehnungsmessstreifen \\
+		OT 	& Oberster Totpunkt \\
+		OP	& Operationsverstärker \\
+		I/O	& Input-Output Schnittstelle\\
+		MUX	& Multiplexer\\
+		S\&H	& Sample-and-Hold-Baustein\\	
 	\end{abkuerzungen}
 	
 	%Schaltet auf arabische Seitenzahlen um.
@@ -71,41 +72,13 @@
 		Bei Fragen und Problemen mit dieser Vorlage wenden sie sich bitte per Mail an die Autoren dieses Dokuments\footnote{Dietmar Winkler (Dietmar.Winkler@tu-berlin.de) oder Thomas Liebezeit (Thomas.Liebezeit@tu-berlin.de)}
 		
 	\chapter{Installation}
-		Die Vorlage besteht aus der Datei \texttt{MDT-SADA.cls}.
+		Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter 'logos'.
+		Des Weiteren wird diese Anleitung und ein Minimalbeispiel für eine Diplomarbeit mitgeliefert. 
+		Zusätzlich besteht die Installation noch aus dem Platzhalterordner 'bilder', als Speicherort für einzubindende Bilder und Grafiken.
 
-		\section{SVN-Repository}
-			Sie wird in einem SVN-Repository verwaltet, dass sich unter folgender Adresse befindet: svn://130.149.48.83/LaTeX/SADA. 
-
-			\subsection{Linux}\label{kap:SVN:Linux}
-				Der erstmalige Zugriff auf das Repository erfolgt unter Linux über den Befehl 'svn -d svn://130.149.48.83/ checkout LaTeX/SADA'.
-
-				Aktualisierungen zu einem späterem Zeitpunkt können über den Befehl 'svn update' im Installationsverzeichnis vorgenommen werden.
-				Zur Wahl des Installationsverzeichnises beachten Sie bitte die Hinweise im Abschnitt~\ref{kap:Latex}.
-			\subsection{Windows}
-				Für den Umgang mit dem Repository unter Windows empfiehlt sich der Einsatz des Programms TortoiseSVN\footnote{\url{http://tortoisesvn.tigris.org/}}, dass das Arbeiten mit dem Repository in den Explorer integriert.
-				
-				Für den ersten Zugriff muss ein leeres Installationsverzeichnis an geeigneter Stelle erstellt werden.
-				Bitte beachten Sie dazu die hinweise aus Abschnitt~\ref{kap:Latex}.
-				Über eine Rechts-Klick und SVN Checkout können nun die Dateien aus dem Repository bezogen werden.
-				Die URL des Repositorys lautet dabei 'svn://130.149.48.83/LaTeX/SADA/'.
-
-				Eine aktuelle Version der Dateien erhalten Sie, wenn Sie den Menüpunkt SVN Update wählen (Rechts-Klick auf das Installationsverzeichnis im Explorer).
-
-				Alternativ zum Programm TortoiseSVN steht auch unter Windows eine Kommandozeilenversion des Programms Subversion\footnote{\url{http://subversion.tigris.org/}} zur Verfügung.
-				Die Befehle sind in diesem Fall mit den in Abschnitt~\ref{kap:SVN:Linux} vorgestellten identisch.
-		\section{Latex-Integration}\label{kap:Latex}
-			Für den Einsatz muss die Datei \url{MDT-SADA.cls} in den \emph{lokalen}(!) Zweig der LaTeX-Distribution in das Verzeichnis \verzeichnis{tex/latex/MDT/} kopiert werden.
-			Am besten geschieht das dadurch, daß die Dateien des Repositorys in dieses Verzeichnis ausgecheckt werden.
-			Im Anschluss muss eine Aktualisierung der Namensdatenbank vorgenommen werden.
-			
-			\subsection{MiKTeX unter Windows}
-				Bei der Latex-Distribution MikTeX besitzt den lokalen Zweig normalerweise unter \verzeichnis{C:/Programme/Miktex/localtexmf/}.
-				Das Installationsverzeichnis lautet dem nach vollständig \verzeichnis{C:/Programme/Miktex/localtexmf/tex/latex/MDT/}.
-				
-				Nach dem Auschecken der Dateien muss eine Aktualisierung der Namensdatenbank von MikTeX durchgeführt werden.
-				Dies erfolgt über den Menüpunkt \path{MiKTeX-Options/General/File name database/Refresh now}.
-				Weitere Aktionen sind nicht nötig.
-				
+		Die Installation erfolgt am einfachsten durch entpacken des ausgelieferten zip-Archivs in ein beliebiges Verzeichnis.
+		Dieses Verzeichnis sollte entweder als Arbeitsverzeichnis für die Studien- bzw. Diplomarbeit verwendet werden, oder sich im Paketverzeichnis der \LaTeX-Installation befinden\footnote{Näheres hierzu findet man in der Installationsanleitung der verwendeten \LaTeX-Distribution.}.
+		
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
