@@ -23,7 +23,6 @@
 	captionpos=b%
 }
 
-
 % Interne Definitionen für die Darstellung von ...
 \newcommand{\befehl}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Befehl!#2}\index{#2}}{}\texttt{$\backslash$#2}}
 \newenvironment{beispiel}[1]{\hfill\begin{minipage}[c]{0.8\textwidth}Beispiel:\small\ifthenelse{\equal{#1}{}}{\\}{\lstinputlisting[linerange={#1}]{MDT-SADA.tex}}}{\end{minipage}\hfill}
@@ -82,7 +81,7 @@
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={1-1,26-27,29-30,32-34,37-37,40-44,46-48,55-55,58-58,61-61,251-251}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,230-230}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
