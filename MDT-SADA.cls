@@ -97,7 +97,7 @@
 %\RequirePackage{lastpage}
 %\RequirePackage[ngerman,num]{isodate}
 \RequirePackage{longtable}
-\RequirePackage{caption2} % für einzugslose Captions
+\RequirePackage{caption} % fuer mehr Caption-Optionen
 %Umbruch auch an Unterstrichen
 %\lccode`\_=`\_
 \RequireIndex
@@ -126,9 +126,9 @@
 			}%
 			}%
 		}%
-        \setlength{\captionindent}{0pt} % on indentation        
+	\captionsetup{indent=0pt,width=.9\textwidth}%
 	\caption{#2}%
-	\ifthenelse%
+      	\ifthenelse%
 		{\equal{#1}{}}%
 		{}%
 		{\label{fig:#1}}%
