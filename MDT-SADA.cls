@@ -177,11 +177,12 @@
 \newcounter{internal_tbl_cnt}[table]
 \newcommand{\tblrow}{\refstepcounter{internal_tbl_cnt}\arabic{internal_tbl_cnt}.}
 
-% [#1] Autor
-% #2 Titel
-% #3 Untertitel
-% #4 Jahr
-% #5 Betreuer
+% #1 Autor
+% #2 Matrikelnummer
+% #3 Titel
+% #4 Untertitel
+% #5 Abgabedatum
+% #6 Betreuer
 \newcommand{\titelseite}[6]{%
 	\extraBookmark{Titelseite}{titleanc}%
 	\thispagestyle{empty}%

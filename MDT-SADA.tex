@@ -71,9 +71,9 @@
 		Bei Fragen und Problemen mit dieser Vorlage wenden sie sich bitte per Mail an die Autoren dieses Dokuments\footnote{Dietmar Winkler (Dietmar.Winkler@tu-berlin.de) oder Thomas Liebezeit (Thomas.Liebezeit@tu-berlin.de)}
 		
 	\chapter{Installation}
-		Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter 'logos'.
+		Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter "`logos"' .
 		Des Weiteren wird diese Anleitung und ein Minimalbeispiel für eine Diplomarbeit mitgeliefert. 
-		Zusätzlich besteht die Installation noch aus dem Platzhalterordner 'bilder', als Speicherort für einzubindende Bilder und Grafiken.
+		Zusätzlich besteht die Installation noch aus dem Platzhalterordner "`bilder', als Speicherort für einzubindende Bilder und Grafiken.
 
 		Die Installation erfolgt am einfachsten durch entpacken des ausgelieferten zip-Archivs in ein beliebiges Verzeichnis.
 		Dieses Verzeichnis sollte entweder als Arbeitsverzeichnis für die Studien- bzw. Diplomarbeit verwendet werden, oder sich im Paketverzeichnis der \LaTeX-Installation befinden\footnote{Näheres hierzu findet man in der Installationsanleitung der verwendeten \LaTeX-Distribution.}.
@@ -81,7 +81,7 @@
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,230-230}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,224-224}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -116,19 +116,13 @@
 		\section{Befehle}
 			\subsection{Titelseite}
 				Der Befehl \befehl{titelseite} erzeugt die definierte Titelseite.
-				Er verfügt über drei reguläre und einen optionalen Parameter.
+				Er verfügt über sechs reguläre Parameter.
 
-				Der erste Parameter enthält das Titel des Skripts, während der zweite den Untertitel beinhaltet.
-				Dieser darf auch leer gelassen werden.
-				Der dritte Parameter nimmt das zugehörige Semester auf.
+				Der erste Parameter enthält den Namen der Autorin, der zweite die Matrikelnummer, der dritte den Titel der Diplomarbeit, der vierte den Untertitel, der fünfte as Abgebedatum und der sechste die Betreuer.
 
-				Der optionale Parameter überschreibt den Standardautor (Prof. Gühmann).
-
-				\begin{beispiel}{32-34}
+				\begin{beispiel}{38-41}
 				Das folgende Beispiel zeigt die Definition der Titelseite dieses Dokuments.
-				Der Titel ist 'Vorlage für Scripte' und der Untertitel 'Anleitung für die Benutzung'.
-				Als Semester wurde 'WS 2005/06' gewählt.
-				Die Autoren sind 'Dietmar Winkler und Thomas Liebezeit'.
+				Der Titel ist z.B. "`Vorlage für Studien- und Diplomarbeiten"' und der Untertitel "`Anleitung für die Benutzung"'. Das Matrikelnummernfeld wurde hier "`missbraucht"' um den zweiten Autor unterzubringen.
 				\end{beispiel}	
 			\subsection{Inhaltsverzeichnis}
 				Der Befehl \befehl{inhaltsverzeichnis} setzt das Inhaltsverzeichnis.
@@ -137,26 +131,26 @@
 				Für die Seite mit den Formelzeichen steht die neue Umgebung \umgebung{formelzeichen} bereit.
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{formelzeichen\}} und \befehl[no]{end\{formelzeichen\}} begrenzt.
 				Die Seite mit den Formelzeichen wird durch eine Tabelle mit zwei Spalten gesetzt, entsprechend gestaltet sich Verwendung.
-				Hinter dem Formelzeichen muss das Symbol '\&' folgen.
-				Dem schließt sich der erklärende Text an, der mit den beiden Zeichen '$\backslash\backslash$' beendet wird.
+				Hinter dem Formelzeichen muss das Symbol "`\&""' folgen.
+				Dem schließt sich der erklärende Text an, der mit den beiden Zeichen "`$\backslash\backslash$""' beendet wird.
 
 				Die Umgebung besitzt einen optionalen Parameter, der die Breite der vorderen spalte festlegt.
-				Die Standardeinstellung ist '0.1'. 
+				Die Standardeinstellung ist "`0.1"' . 
 
-				\begin{beispiel}{40-43}
+				\begin{beispiel}{47-50}
 				In diesem Beispiel wird ein Formelzeichen und eine Matrix definiert.
 				\end{beispiel}
 			  \subsection{Abkürzungen}
 				Für die Seite mit den Abkürzungen steht die neue Umgebung \umgebung{abkuerzungen} bereit (vgl. Formelzeichen).
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{abkuerzungen\}} und \befehl[no]{end\{abkuerzungen\}} begrenzt.
 				Die Seite mit den Abkürzungen wird durch eine Tabelle mit zwei Spalten gesetzt, entsprechend gestaltet sich die Verwendung.
-				Hinter der Abkürzunge muss das Symbol '\&' folgen.
-				Dem schließt sich der erklärende Text an, der mit den beiden Zeichen '$\backslash\backslash$' beendet wird.
+				Hinter der Abkürzunge muss das Symbol "`\&"' folgen.
+				Dem schließt sich der erklärende Text an, der mit den beiden Zeichen "`$\backslash\backslash$"' beendet wird.
 
 				Die Umgebung besitzt einen optionalen Parameter, der die Breite der vorderen Spalte festlegt.
-				Die Standardeinstellung ist '0.1'.
+				Die Standardeinstellung ist "`0.1"' .
 
-				\begin{beispiel}{46-55}
+				\begin{beispiel}{53-62}
 				In diesem Beispiel werden ein paar Abkürzungen definiert.
 				\end{beispiel}
 			\subsection{Bilder}
@@ -164,7 +158,7 @@
 				Sie vereinfachen und vereinheitlichen die Verwendung von Bildern und sollten deshalb ausschließlich verwendet werden.
 
 				Ein weiterer Vorteil bei der Verwendung der Befehle liegt in der Tatsache, daß für die auf diesem Weg eingefügten Bilder gleich entsprechende Label für Verweise angelegt werden.
-				Bilder sollten immer ohne Endung eingebunden werden (\path{bild.png} als \path{bild}), wobei dann der Verweis als 'fig:bild' bereit steht. 
+				Bilder sollten immer ohne Endung eingebunden werden (\path{bild.png} als \path{bild}), wobei dann der Verweis als "`fig:bild"' bereit steht. 
 
 				Bilder werden immer im Ordner \verzeichnis{bilder/} erwartet, der parallel zur Hauptdatei liegen muss. 
 				Die beiden Logos müssen im Verzeichnis \verzeichnis{logos/} liegen.
@@ -180,8 +174,8 @@
 					\begin{beispiel}{}
 						Als Beispiel mag die Einbindung von Bild~\ref{fig:MDT-logo} dienen.
 						Sie erfolgt mit dem Befehl \befehl[no]{bild\{MDT-logo\}\{Das Institutslogo.\}\{width=\befehl[no]{textwidth}\}}.
-						'MDT-logo' ist der Name der Bilddatei und 'Das Institutslogo.' die Bildunterschrift.
-						'width=\befehl[no]{textwidth}' setzt die Bildbreite auf die Textbreite.
+						"`'MDT-logo"' ist der Name der Bilddatei und "`Das Institutslogo."' die Bildunterschrift.
+						"`'width=\befehl[no]{textwidth}"' setzt die Bildbreite auf die Textbreite.
 						Der obige Verweis wurde über den Befehl \befehl[no]{ref\{fig:MDT-logo\}} erzeugt.
 					\end{beispiel}
 				\subsubsection{Doppelbild}
@@ -206,7 +200,7 @@
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{245-247}
+				\begin{beispiel}{218-220}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}
