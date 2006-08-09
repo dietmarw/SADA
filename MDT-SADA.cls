@@ -34,8 +34,12 @@
 \newcommand{\MDTlogo}{\includegraphics[height=2cm]{MDT-logo}}
 \newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
 \ifpdfoutput{}{%
-	\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}
-	\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}
+	\IfFileExists{logos/MDT-logo.eps}%
+		{}%
+		{\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}}%
+	\IfFileExists{logos/TU-logo_gruen.eps}%
+		{}%
+		{\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
 }
 
 \newif\if@nologo
@@ -67,7 +71,7 @@
 }%
 
 
-%Alle uebrigen Optionen werden an scrartcl weitergereicht
+%Alle uebrigen Optionen werden an scrbook weitergereicht
 \DeclareOption*{%
     \typeout{Option \CurrentOption\space is passed to package scrbook!}
     \PassOptionsToPackage{\CurrentOption}{scrbook}
@@ -111,21 +115,24 @@
 %\renewcommand{\figurename}{Bild}
 
 %Umgebungen------------------------------------
-\newcommand{\includeBild}[3]{%
-\ifthenelse%
+\newcommand{\includeBild}[3]%
+{\ifthenelse%
 		{\equal{#1}{}}%
 		{\mbox{\parbox[b][5cm][c]{0.7\textwidth}{\begin{center}no picture\end{center}}}}%
-		{\ifpdfoutput{%
-			\mbox{\includegraphics[#3]{#1}}%
-			}{%
-			\mbox{\parbox[b][5cm][c]{0.7\textwidth}{%
-				\begin{center}%
-					\path{#1.{pdf,png,jpg}}\bigskip\\{\footnotesize(nicht in \jobname.dvi)}%
-				\end{center}%
+		{\ifpdfoutput%
+			{\mbox{\includegraphics[#3]{#1}}}%
+			{\IfFileExists%
+				{bilder/#1.eps}%
+				{\mbox{\includegraphics[#3]{#1}}}%
+				{\mbox{\parbox[b][5cm][c]{0.7\textwidth}{%
+					\begin{center}%
+						\path{#1.{pdf,png,jpg}}\bigskip\\{\footnotesize(nicht in \jobname.dvi)}%
+					\end{center}%
+						}%
 				}%
 			}%
-			}%
 		}%
+}%
 	\captionsetup{indent=0pt,width=.9\textwidth}%
 	\caption{#2}%
       	\ifthenelse%
