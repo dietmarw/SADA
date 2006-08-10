@@ -87,7 +87,7 @@
 	\if@print
 		% nothing
 	\else
-		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels]{hyperref}
 	\fi
 }{%\else
 	\RequirePackage[T1]{fontenc}
