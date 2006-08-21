@@ -19,6 +19,9 @@
 \ProvidesClass{MDT-SADA}[21/07/2006 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
 \LoadClass[halfparskip,DIV13,BCOR2cm]{scrbook}
 
+% Workaround for MiKTeX 2.5 \ifpdfoutput handling
+\let\doifdefined\relax
+
 %Auswertung der Paketoptionen
 %Behandlung der pdf-Option. Dies wird eingeführt, um Übersetzungszeit
 %zu sparen, wenn nur ein .ps erzeugt werden soll.
