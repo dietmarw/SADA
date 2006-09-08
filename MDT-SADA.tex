@@ -2,7 +2,7 @@
 %% Version: filename    rev date       time     last modified by
 %%     $Id$ 
 %%**************************************************************
-%% (The "Id" tag above is update automatically if 
+%% (The "Id" tag above is updated automatically if 
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
 \documentclass[index]{MDT-SADA}
@@ -13,7 +13,7 @@
 \lstset{%
 	tabsize=2,%
 	basicstyle=\footnotesize\ttfamily,%
-	%numbers=left,%
+	%numbers=left,% 
 	%numberfirstline,%
 	breaklines=true,%
 	breakatwhitespace=true,%
@@ -27,7 +27,7 @@
 \newcommand{\befehl}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Befehl!#2}\index{#2}}{}\texttt{$\backslash$#2}}
 \newenvironment{beispiel}[1]{\hfill\begin{minipage}[c]{0.8\textwidth}Beispiel:\small\ifthenelse{\equal{#1}{}}{\\}{\lstinputlisting[linerange={#1}]{MDT-SADA.tex}}}{\end{minipage}\hfill}
 \newcommand{\verzeichnis}[1]{\path{#1}}
-\newcommand{\option}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Option!#2}\index{#2}}{}'#2'}
+\newcommand{\option}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Option!#2}\index{#2}}{}\mbox{'#2'}}
 \newcommand{\umgebung}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Umgebung!#2}\index{#2}}{}\texttt{#1}}
 
 \begin{document}
@@ -81,7 +81,7 @@
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,224-224}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,227-227}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -109,9 +109,10 @@
 				Für die Erstellung eines Indexes ist das folgende Vorgehen wichtig.
 				Im Text sind Schlagwörter, die in den Index aufgenommen werden sollen mit einem nachgestellten Befehl \befehl{index} zu versehen.
 				Danach ist ein LaTeX"=Lauf nötig, gefolgt von einen Lauf des Programms \texttt{makeindex <datei\_ohne\_endung>} und zwei finalen LaTeX"=Läufen.
-				
-
-				
+				\subsection{english}
+				Für diejenigen, welche die Arbeit in englisch verfassen möchten,  steht die Option \option{english} zur Verfügung.
+				Sämtliche Standardüberschriften werden dann in englischer Sprache  (genauer gesagt "`British English"') angegeben (z.B. "`Symbols"' statt "`Abkürzungen"').
+				Das gleiche gilt auch für das Datumsformat.
 				
 		\section{Befehle}
 			\subsection{Titelseite}
@@ -202,7 +203,7 @@ Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, auß
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{218-220}
+				\begin{beispiel}{221-224}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}

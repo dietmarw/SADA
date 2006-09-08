@@ -11,7 +11,7 @@
 %% Version: filename    rev date       time     last modified by
 %%     $Id$ 
 %%**************************************************************
-%% (The "Id" tag above is update automatically if 
+%% (The "Id" tag above is updated automatically if 
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
 
@@ -44,6 +44,14 @@
 		{}%
 		{\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
 }
+
+% Umschaltung auf Englisch (genauer britisches Englisch)
+\newif\if@english
+\@englishfalse
+\DeclareOption{english} {%
+  \@englishtrue%
+  \PassOptionsToPackage{british}{scrbook}
+}%
 
 \newif\if@nologo
 \@nologofalse
@@ -100,7 +108,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{url}
 \RequirePackage[automark]{scrpage2}
-\RequirePackage[ngerman]{babel}
+\RequirePackage[\if@english british\else ngerman\fi]{babel}
 %\RequirePackage{lastpage}
 %\RequirePackage[ngerman,num]{isodate}
 \RequirePackage{longtable}
@@ -114,7 +122,7 @@
 %Redefinitionen---------------------------------
 %Literaturverzeichnis statt nur Literatur
 %\renewcommand{\refname}{Literaturverzeichnis}
- \AtBeginDocument{\renewcommand*\figurename{Bild}} 
+\if@english \else \AtBeginDocument{\renewcommand*\figurename{Bild}}\fi 
 %\renewcommand{\figurename}{Bild}
 
 %Umgebungen------------------------------------
@@ -262,8 +270,8 @@
 	\@openrightfalse%
 	\setlength{\FormelTabellenWeite}{\textwidth}%
 	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\chapter*{Formelzeichen}%
-	\extraBookmark{Formelzeichen}{formulaanc}%
+	\chapter*{\if@english Symbols\else Formelzeichen\fi}%
+	\extraBookmark{\if@english Symbols\else Formelzeichen\fi}{formulaanc}%
 	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
 	\end{longtable}%
@@ -276,8 +284,8 @@
 	\@openrightfalse%
 	\setlength{\FormelTabellenWeite}{\textwidth}%
 	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\chapter*{Glossar}%
-	\extraBookmark{Glossar}{abranc}%
+	\chapter*{\if@english Glossary\else Glossar\fi}%
+	\extraBookmark{\if@english Glossary\else Glossar\fi}{abranc}%
 	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
 	\end{longtable}%
@@ -287,8 +295,8 @@
 
 \newenvironment{literaturverzeichnis}
 {\begin{thebibliography}{99}%
-	\addcontentsline{toc}{chapter}{Literatur}%
-%	\extraBookmark{Literatur}{litanc}
+	\addcontentsline{toc}{chapter}{\if@english Bibliography\else Literatur\fi}%
+%	\extraBookmark{\if@english Bibliography\else Literatur\fi}{litanc}
 }
 {\end{thebibliography}}
 
