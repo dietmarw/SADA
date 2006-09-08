@@ -218,7 +218,7 @@
 		\vfill%
 		\begin{minipage}[t]{0.25\textwidth}%
 			\flushright\Large%
-			Betreuer:~%
+			\if@english Supervisor\else Betreuer\fi:~%
 		\end{minipage}%
 		\vspace{0pt}~%
 		\begin{minipage}[t]{0.45\textwidth}%
@@ -227,10 +227,17 @@
 		\end{minipage}%
                 \vfill%
                     {\Large%
-                      Technische Universität Berlin\\%
-                      Fakultät IV -- Elektrotechnik und Informatik\\%
-                      Institut für Energie- und Automatisierungstechnik\\%
-	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
+                    \if@english%
+					 	Technical University of Berlin\\%
+						Faculty IV -- Electrical Engineering and Computer Science\\%
+						Institute of Energy and Automation Technology\\%
+						Department of Electronic Measurement and Diagnostic Technology\\%
+					\else
+						Technische Universität Berlin\\%
+                        Fakultät IV -- Elektrotechnik und Informatik\\%
+                        Institut für Energie- und Automatisierungstechnik\\%
+	              		Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
+		             \fi%
                     }%
         \end{center}%
 %
