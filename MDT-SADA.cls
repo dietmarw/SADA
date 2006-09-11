@@ -98,7 +98,7 @@
 	\if@print
 		% nothing
 	\else
-		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels]{hyperref}
+		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
 	\fi
 }{%\else
 	\RequirePackage[T1]{fontenc}
@@ -113,6 +113,7 @@
 %\RequirePackage[ngerman,num]{isodate}
 \RequirePackage{longtable}
 \RequirePackage{caption} % fuer mehr Caption-Optionen
+\RequirePackage{setspace} % fuer Zeilenabstandsanpassung
 %Umbruch auch an Unterstrichen
 %\lccode`\_=`\_
 \RequireIndex
@@ -135,9 +136,11 @@
 			{\IfFileExists%
 				{bilder/#1.eps}%
 				{\mbox{\includegraphics[#3]{#1}}}%
-				{\mbox{\parbox[b][5cm][c]{0.7\textwidth}{%
+				{\fbox{\parbox[b][5cm][c]{0.7\textwidth}{%
 					\begin{center}%
-						\path{#1.{pdf,png,jpg}}\bigskip\\{\footnotesize(nicht in \jobname.dvi)}%
+						\path{#1.eps} nicht gefunden,\bigskip\\
+						{\footnotesize\path{#1.{pdf,png,jpg}}\\
+						(\ldots wird nicht in \jobname.dvi angezeigt!)}%
 					\end{center}%
 						}%
 				}%
@@ -209,9 +212,11 @@
 	\vfill%
 	\begin{center}%
 	  %Titel und Untertitel%
-	  {\textbf{{\Huge #3}\ifthenelse{\equal{#4}{}}{}{\\{\vspace*{3ex}\LARGE #4}}}}%
-          \\[6ex]%
-            {\Large #1\\ \# #2}\\%
+	 \begin{spacing}{2.5}
+	 	{\textbf{{\Huge #3}\ifthenelse{\equal{#4}{}}{}{\\{\vspace*{3ex}\LARGE #4}}}}%
+		 \\[6ex]%
+	 \end{spacing}%
+         {\Large #1\\ \# #2}\\%
 	    \vfill%
 	    \vfill%
 	        {\LARGE #5}\\%
@@ -227,6 +232,18 @@
 		\end{minipage}%
                 \vfill%
                     {\Large%
+<<<<<<< .mine
+                     \if@english
+					 	Technical University of Berlin\\%
+						Faculty IV -- Electrical Engineering and Computer Science\\%
+						Institute of Energy and Automation Technology\\%
+						Department of Electronic Measurement and Diagnostic Technology%
+					\else
+					Technische Universität Berlin\\%
+                      Fakultät IV -- Elektrotechnik und Informatik\\%
+                      Institut für Energie- und Automatisierungstechnik\\%
+	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
+=======
                     \if@english%
 					 	Technical University of Berlin\\%
 						Faculty IV -- Electrical Engineering and Computer Science\\%
@@ -238,6 +255,8 @@
                         Institut für Energie- und Automatisierungstechnik\\%
 	              		Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
 		             \fi%
+>>>>>>> .r65
+		             \fi  
                     }%
         \end{center}%
 %
@@ -250,7 +269,7 @@
 \newcommand{\inhaltsverzeichnis}
 {%
 	\tableofcontents%
-	\extraBookmark{Inhaltsverzeichnis}{tocanc}%
+	\extraBookmark{\if@english Contents\else Inhaltsverzeichnis\fi}{tocanc}%
 	\if@onlytoc\clearmydoublepage\else\fi%
 }
 

@@ -66,9 +66,9 @@
 
 	%Hier beginnt unser Text ;-)
 	\chapter{Einleitung}
-		Dieses Dokument beschreibt den Einsatz der LaTeX-Vorlage für Studien- und Diplomarbeiten des Instituts für Elektronische Mess- und Diagnosetechnik der Technischen Universität Berlin.
+		Dieses Dokument beschreibt den Einsatz der \LaTeX-Vorlage für Studien- und Diplomarbeiten des Instituts für Elektronische Mess- und Diagnosetechnik der Technischen Universität Berlin.
 	
-		Bei Fragen und Problemen mit dieser Vorlage wenden sie sich bitte per Mail an die Autoren dieses Dokuments\footnote{Dietmar Winkler (Dietmar.Winkler@tu-berlin.de) oder Thomas Liebezeit (Thomas.Liebezeit@tu-berlin.de)}
+		Bei Fragen und Problemen mit dieser Vorlage wenden sie sich bitte per E-Mail an die Autoren dieses Dokuments\footnote{Dietmar Winkler (\texttt{Dietmar.Winkler@tu-berlin.de}) oder\\ Thomas Liebezeit (\texttt{Thomas.Liebezeit@tu-berlin.de})}
 		
 	\chapter{Installation}
 		Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter "`logos"' .
@@ -77,6 +77,23 @@
 
 		Die Installation erfolgt am einfachsten durch entpacken des ausgelieferten zip-Archivs in ein beliebiges Verzeichnis.
 		Dieses Verzeichnis sollte entweder als Arbeitsverzeichnis für die Studien- bzw. Diplomarbeit verwendet werden, oder sich im Paketverzeichnis der \LaTeX-Installation befinden\footnote{Näheres hierzu findet man in der Installationsanleitung der verwendeten \LaTeX-Distribution.}.
+		\section{Benötigte Pakete}
+		Um die Klassendatei \texttt{MDT-SADA.cls} problemlos verwenden zu können, müssen folgende Pakete in der \LaTeX -Installation vorhanden sein:
+		\begin{itemize}
+          \item \texttt{scrbook, scrpage2} (Koma-Skript Klassen)
+          \item \texttt{fontenc} (für bessere Fontdarstellung im PDF)
+          \item \texttt{inputenc} (um Umlaute direkt eingeben zu können)
+          \item \texttt{graphicx} (zum Einbinden von Grafiken)
+          \item \texttt{hyperref} (zur Darstellung von Links)
+          \item \texttt{ifthen} (für notwendige Automatisierungen in der Klassendatei)
+          \item \texttt{url} (Umbrüche von Hyperlinks ermöglichen)
+          \item \texttt{longtable} (für lange Tabellen)
+          \item \texttt{caption}  (für mehr Caption-Optionen)
+          \item \texttt{setspace} (für Zeilenabstandsanpassung)
+        \end{itemize}
+
+Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distributionen ({MiK\TeX , te\TeX , \TeX Live) enthalten bzw. lassen sich leicht nachinstallieren.
+
 		
 	\chapter{Einsatz}
 		\section{Allgemeines}
