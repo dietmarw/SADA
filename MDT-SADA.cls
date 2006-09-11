@@ -232,7 +232,6 @@
 		\end{minipage}%
                 \vfill%
                     {\Large%
-<<<<<<< .mine
                      \if@english
 					 	Technical University of Berlin\\%
 						Faculty IV -- Electrical Engineering and Computer Science\\%
@@ -243,20 +242,7 @@
                       Fakultät IV -- Elektrotechnik und Informatik\\%
                       Institut für Energie- und Automatisierungstechnik\\%
 	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
-=======
-                    \if@english%
-					 	Technical University of Berlin\\%
-						Faculty IV -- Electrical Engineering and Computer Science\\%
-						Institute of Energy and Automation Technology\\%
-						Department of Electronic Measurement and Diagnostic Technology\\%
-					\else
-						Technische Universität Berlin\\%
-                        Fakultät IV -- Elektrotechnik und Informatik\\%
-                        Institut für Energie- und Automatisierungstechnik\\%
-	              		Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
 		             \fi%
->>>>>>> .r65
-		             \fi  
                     }%
         \end{center}%
 %
