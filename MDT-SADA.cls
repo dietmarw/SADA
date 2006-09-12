@@ -92,19 +92,16 @@
 %%%
 %Die allgemein benötigten packages
 \ifpdfoutput{
-	\RequirePackage[T1]{fontenc}
-	\RequirePackage{ae}
-	\RequirePackage[latin1]{inputenc}
 	\if@print
 		% nothing
 	\else
 		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
 	\fi
 }{%\else
-	\RequirePackage[T1]{fontenc}
-	\RequirePackage[latin1]{inputenc}
 	\RequirePackage[dvips]{hyperref}
 }%\fi
+\RequirePackage[T1]{fontenc}
+\RequirePackage[latin1]{inputenc}
 \RequirePackage{ifthen}
 \RequirePackage{url}
 \RequirePackage[automark]{scrpage2}
@@ -124,7 +121,6 @@
 %Literaturverzeichnis statt nur Literatur
 %\renewcommand{\refname}{Literaturverzeichnis}
 \if@english \else \AtBeginDocument{\renewcommand*\figurename{Bild}}\fi 
-%\renewcommand{\figurename}{Bild}
 
 %Umgebungen------------------------------------
 \newcommand{\includeBild}[3]%
