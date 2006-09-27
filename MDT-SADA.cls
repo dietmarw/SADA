@@ -151,10 +151,10 @@
 		{\label{fig:#1}}%
 }
 
-\newcommand{\bild}[3]{%
-\begin{figure}[htb]%
+\newcommand{\bild}[4][htb]{%
+\begin{figure}[#1]%
 	\centering%
-	\includeBild{#1}{#2}{#3}
+	\includeBild{#2}{#3}{#4}
 \end{figure}%
 }
 
@@ -167,15 +167,15 @@
 }
 
 
- \newcommand{\doppelbild}[6]{%
-\begin{figure}%
+\newcommand{\doppelbild}[7][htb]{%
+\begin{figure}[#1]%
 \begin{minipage}[t]{.45\textwidth}%
 \centering%
-  \includeBild{#1}{#2}{#3}%
+  \includeBild{#2}{#3}{#4}%
 \end{minipage}%
 ~\hfill~%
 \begin{minipage}[t]{.45\textwidth}%
-  \includeBild{#4}{#5}{#6}%
+  \includeBild{#5}{#6}{#7}%
 \end{minipage}%
 \end{figure}%
 }

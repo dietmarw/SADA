@@ -11,7 +11,7 @@
 \usepackage{listings}
 
 \lstset{%
-	tabsize=2,%
+	tabsize=2,% 
 	basicstyle=\footnotesize\ttfamily,%
 	%numbers=left,% 
 	%numberfirstline,%
@@ -98,7 +98,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,244-244}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,249-249}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -196,9 +196,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 						"`'width=\befehl[no]{textwidth}"' setzt die Bildbreite auf die Textbreite.
 						Der obige Verweis wurde über den Befehl \befehl[no]{ref\{fig:MDT-logo\}} erzeugt.
 					\end{beispiel}
-                    \subsection{Bild hier plazieren}
-Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, außer dass die Standardplazierungsargumente \texttt{[htb]} auf \texttt{[!ht]} ($\rightarrow$ plaziere Bild hier auch wenn's besch\ldots eiden aussieht) gesetzt werden. Bei der Verwendung des Befehls \befehl[no]{bildhier} sollte man jedoch vorsichtig sein, da hier eine Bildplazierung vorgenommen wird, welche gegen die normalen Layoutrichtlinien \LaTeX s verstoßen. 
-				\subsubsection{Doppelbild}
+                    \subsubsection{Doppelbild}
 					Der Befehl \befehl{doppelbild} setzt zwei Bilder mit eigener Nummerierung neben einander.
 					Die einzelnen Parameter entsprechen denen des Befehls \befehl{bild}, nur daß sie jetzt für zwei Bilder angegeben werden müssen.
 					Parameter eins ist der Dateiname des ersten Bildes, der zweite Parameter ist die zugehörige Bildunterschrift und der dritte Parameter dient der Formatierung des ersten Bildes.
@@ -209,7 +207,14 @@ Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, auß
 					\begin{beispiel}{}
 						Für die Darstellung des folgenden Doppelbildes wurde der Befehl \befehl[no]{doppelbild\{TU-logo\_gruen\}\{Das Logo der TU Berlin.\}\{width=\befehl[no]{textwidth}\}\{TU-logo\_gruen\}\{Das Logo der Technischen Universität Berlin\}\{width=\befehl[no]{textwidth}\}} verwendet.
 					\end{beispiel}
+\subsubsection{Bild hier plazieren}
+Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, außer dass die Standardplazierungsargumente \texttt{[htb]} auf \texttt{[!ht]} ($\rightarrow$ plaziere Bild hier auch wenn's besch\ldots eiden aussieht) gesetzt werden. Bei der Verwendung des Befehls \befehl[no]{bildhier} sollte man jedoch vorsichtig sein, da hier eine Bildplazierung vorgenommen wird, welche gegen die normalen Layoutrichtlinien \LaTeX s verstoßen. 
 
+Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{doppelbild} noch die Möglichkeit die Plazierung durch ein Optionales Plazierungsargument zu steuern.
+
+	\begin{beispiel}{}
+				Sollen Bilder bzw. Doppelbilder auf einer Extraseite [p] erscheinen, dann erreicht man das durch den Aufruf von \befehl[no]{bild[p]\{TU-logo\_gruen\}\ldots} bzw. \befehl[no]{doppelbild[p]\{TU-logo\_gruen\}\ldots}. Diese Option ermöglicht es einem natürlich auch ein Doppelbild "`hier"' zu plazieren: \befehl[no]{doppelbild[!ht]\{TU-logo\_gruen\}\ldots}
+					\end{beispiel}
 			\subsection{Indexverzeichnis}
 				Ist die Option \option{index} gesetzt, steht der Befehl \befehl{indexverzeichnis} zur Verfügung, der dem Dokument einen Index hinzufügt.
 				Dafür müssen im Text Schlagwörter mit dem Befehl \befehl{index} ausgewiesen werden.
@@ -220,7 +225,7 @@ Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, auß
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{238-240}
+				\begin{beispiel}{243-245}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}
