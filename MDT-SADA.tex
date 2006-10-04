@@ -98,7 +98,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,249-249}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,256-256}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -145,7 +145,14 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 			\subsection{Inhaltsverzeichnis}
 				Der Befehl \befehl{inhaltsverzeichnis} setzt das Inhaltsverzeichnis.
 				Er entspricht fast vollständig dem Standardlatexbefehl \befehl[no]{tableofcontents}, erzeugt jedoch noch zusätzlich ein Lesezeichen bei der Ausgabe in eine pdf"=Datei.
-			\subsection{Formelzeichen}
+				
+				Möchte man die Anzeigetiefe des Inhaltsverzeichnises bis auf die \texttt{subsubsection}-Ebene erweitern, sollten einfach die folgenden zwei Befehle in der Präambel des \LaTeX-Dokuments gesetzt werden:
+\begin{verbatim}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\end{verbatim} 
+
+\subsection{Formelzeichen}
 				Für die Seite mit den Formelzeichen steht die neue Umgebung \umgebung{formelzeichen} bereit.
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{formelzeichen\}} und \befehl[no]{end\{formelzeichen\}} begrenzt.
 				Die Seite mit den Formelzeichen wird durch eine Tabelle mit zwei Spalten gesetzt, entsprechend gestaltet sich Verwendung.
@@ -225,7 +232,7 @@ Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{do
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{243-245}
+				\begin{beispiel}{250-252}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}
