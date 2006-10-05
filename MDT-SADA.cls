@@ -4,9 +4,7 @@
 %%* MDT                                  *
 %%*                                      *
 %%****************************************
-%%
-%% LaTeX-Vorlage fuer
-%% MDT
+%% LaTeX-class for writing theses
 %%**************************************************************
 %% Version: filename    rev date       time     last modified by
 %%     $Id$ 
@@ -14,9 +12,10 @@
 %% (The "Id" tag above is updated automatically if 
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
+%%*******************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{MDT-SADA}[21/07/2006 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
+\ProvidesClass{MDT-SADA}[2006/10/05 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
 \LoadClass[halfparskip,DIV13,BCOR2cm]{scrbook}
 
 % Workaround for MiKTeX 2.5 \ifpdfoutput handling
@@ -278,7 +277,7 @@
 	\@openrightfalse%
 	\setlength{\FormelTabellenWeite}{\textwidth}%
 	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\chapter*{\if@english Symbols\else Formelzeichen\fi}%
+	\addchap*{\if@english Symbols\else Formelzeichen\fi}%
 	\extraBookmark{\if@english Symbols\else Formelzeichen\fi}{formulaanc}%
 	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
@@ -292,7 +291,7 @@
 	\@openrightfalse%
 	\setlength{\FormelTabellenWeite}{\textwidth}%
 	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\chapter*{\if@english Glossary\else Glossar\fi}%
+	\addchap*{\if@english Glossary\else Glossar\fi}%
 	\extraBookmark{\if@english Glossary\else Glossar\fi}{abranc}%
 	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
