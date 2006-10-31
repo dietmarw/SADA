@@ -99,7 +99,9 @@
 }{%\else
 	\RequirePackage[dvips]{hyperref}
 }%\fi
+\RequirePackage{lmodern}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{mathptmx}
 \RequirePackage[latin1]{inputenc}
 \RequirePackage{ifthen}
 \RequirePackage{url}
