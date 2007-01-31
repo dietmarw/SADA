@@ -13,45 +13,15 @@
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
 %%*******************************************
-
+% -------------------------------Identification------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{MDT-SADA}[2006/10/05 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
-\LoadClass[halfparskip,DIV13,BCOR2cm]{scrbook}
+\ProvidesClass{MDT-SADA}[2007/01/31 Vorlage fuer TU Berlin MDT Studien- und Diplomarbeiten]
 
 % Workaround for MiKTeX 2.5 \ifpdfoutput handling
 \let\doifdefined\relax
 
-%Auswertung der Paketoptionen
-%Behandlung der pdf-Option. Dies wird eingeführt, um Übersetzungszeit
-%zu sparen, wenn nur ein .ps erzeugt werden soll.
-
-\ifpdfoutput{
-	\RequirePackage[pdftex]{graphicx}
-}{%\else
-	\RequirePackage[dvips]{graphicx}
-}%\fi
-\graphicspath{{logos/}{bilder/}}
-
-%nologo-Option
-\newcommand{\MDTlogo}{\includegraphics[height=2cm]{MDT-logo}}
-\newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
-\ifpdfoutput{}{%
-	\IfFileExists{logos/MDT-logo.eps}%
-		{}%
-		{\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}}%
-	\IfFileExists{logos/TU-logo_gruen.eps}%
-		{}%
-		{\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
-}
-
-% Umschaltung auf Englisch (genauer britisches Englisch)
-\newif\if@english
-\@englishfalse
-\DeclareOption{english} {%
-  \@englishtrue%
-  \PassOptionsToPackage{british}{scrbook}
-}%
-
+% --------------------------- declaration of options ------------------------------------
+% nologo-option
 \newif\if@nologo
 \@nologofalse
 \DeclareOption{nologo} {%
@@ -59,7 +29,16 @@
   \renewcommand{\MDTlogo}{}%
   \renewcommand{\TUlogo}{}%
 }%
+
+% english-option Umschaltung auf Englisch (genauer britisches Englisch)
+\newif\if@english
+\@englishfalse
+\DeclareOption{english} {%
+  \@englishtrue%
+  \PassOptionsToClass{british}{scrbook}
+}%
 	
+% onlytoc-option
 \newif\if@onlytoc
 \@onlytocfalse
 \DeclareOption{onlytoc}{\@onlytoctrue}
@@ -72,6 +51,7 @@
 	\renewcommand{\extraBookmark}[2]{}%
 }%
 
+% index-option
 \newcommand{\RequireIndex}{}
 \newif\if@index
 \@indexfalse
@@ -80,16 +60,28 @@
   \renewcommand{\RequireIndex}{\RequirePackage{makeidx}\makeindex}%
 }%
 
-
-%Alle uebrigen Optionen werden an scrbook weitergereicht
+% Alle uebrigen Optionen werden an scrbook weitergereicht
 \DeclareOption*{%
     \typeout{Option \CurrentOption\space is passed to package scrbook!}
-    \PassOptionsToPackage{\CurrentOption}{scrbook}
+    \PassOptionsToClass{\CurrentOption}{scrbook}
 }%
-\ProcessOptions\relax
 
-%%%
-%Die allgemein benötigten packages
+% --------------------------- execution of options ------------------------------------
+\ProcessOptions\relax
+\LoadClass[halfparskip,DIV13,BCOR2cm]{scrbook}
+
+% ----------------------------- package loading ---------------------------------------
+
+%%Behandlung der pdf-Option. Dies wird eingefuehrt, um Uebersetzungszeit
+%% zu sparen, wenn nur ein .ps erzeugt werden soll.
+\ifpdfoutput{
+	\RequirePackage[pdftex]{graphicx}
+}{%\else
+	\RequirePackage[dvips]{graphicx}
+}%\fi
+\graphicspath{{logos/}{bilder/}}
+\newcommand{\MDTlogo}{\includegraphics[height=2cm]{MDT-logo}}
+\newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
 \ifpdfoutput{
 	\if@print
 		% nothing
@@ -99,6 +91,14 @@
 }{%\else
 	\RequirePackage[dvips]{hyperref}
 }%\fi
+\ifpdfoutput{}{%
+	\IfFileExists{logos/MDT-logo.eps}%
+		{}%
+		{\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}}%
+	\IfFileExists{logos/TU-logo_gruen.eps}%
+		{}%
+		{\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
+}%
 \RequirePackage{lmodern}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{mathptmx}
@@ -159,7 +159,6 @@
 \end{figure}%
 }
 
-
 \newcommand{\bildhier}[3]{%
 \begin{figure}[!ht]%
 	\centering%
@@ -181,15 +180,11 @@
 \end{figure}%
 }
 
-
-
 %\newcommand{\maxHight}{0.925\textheight}
 %\newcommand{\maxWidth}{0.5\textheight}
 
-
 %\newcommand{\var}[1]{'\texttt{#1}'}
 %\newcommand{\myitem}[1]{\item \textbf{#1}}
-
 
 % Zähler für Zeilennnummerierungen in Tablellen
 \newcounter{internal_tbl_cnt}[table]
@@ -247,7 +242,6 @@
 	%\newpage
 	\makeHead{#1, \#\,#2}%
 }
-
 
 \newcommand{\inhaltsverzeichnis}
 {%

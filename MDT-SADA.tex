@@ -5,16 +5,16 @@
 %% (The "Id" tag above is updated automatically if 
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
-\documentclass[index]{MDT-SADA}
-
+\documentclass[index]{MDT-SADA}  
+   
 % Zusätzliches Packet für diese Datei und zugehörige Einstellungen
 \usepackage{listings}
-
-\lstset{%
+ 
+\lstset{% 
 	tabsize=2,% 
 	basicstyle=\footnotesize\ttfamily,%
 	%numbers=left,% 
-	%numberfirstline,%
+ 	%numberfirstline,%
 	breaklines=true,%
 	breakatwhitespace=true,%
 	%linewidth=0.9\textwidth,% ´´
@@ -60,8 +60,7 @@
 		MUX	& Multiplexer\\
 		S\&H	& Sample-and-Hold-Baustein\\	
 	\end{abkuerzungen}
-	
-	%Schaltet auf arabische Seitenzahlen um.
+ 	%Schaltet auf arabische Seitenzahlen um.
 	\mainmatter
 
 	%Hier beginnt unser Text ;-)
@@ -73,7 +72,7 @@
 	\chapter{Installation}
 		Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter "`logos"' .
 		Des Weiteren wird diese Anleitung und ein Minimalbeispiel für eine Diplomarbeit mitgeliefert. 
-		Zusätzlich besteht die Installation noch aus dem Platzhalterordner "`bilder', als Speicherort für einzubindende Bilder und Grafiken.
+		Zusätzlich besteht die Installation noch aus dem Platzhalterordner "`bilder"', als Speicherort für einzubindende Bilder und Grafiken.
 
 		Die Installation erfolgt am einfachsten durch entpacken des ausgelieferten zip-Archivs in ein beliebiges Verzeichnis.
 		Dieses Verzeichnis sollte entweder als Arbeitsverzeichnis für die Studien- bzw. Diplomarbeit verwendet werden, oder sich im Paketverzeichnis der \LaTeX-Installation befinden\footnote{Näheres hierzu findet man in der Installationsanleitung der verwendeten \LaTeX-Distribution.}.
@@ -98,7 +97,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,256-256}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,33-33,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,255-256}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -107,7 +106,8 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 			Aufgrund der Unterschiede in den von beiden LaTeX-Varianten unterstützten Grafikformaten werden bei nicht pdf"=Ausgabe die Bilder durch leere Rahmen ersetzt.
 			
 		\section{Optionen}
-			Die MDT-SADA-Klasse stellt eine Reihe von Optionen bereit, die im folgendem beschrieben werden sollen.
+			Es können sämtliche Optionen von KOMA-Skript verwendet werden (wie z.B. \option{oneside} zum erstellen von einseitig bedruckten Dokumenten, Standard ist doppelseitig).
+			Zuätzlich stellt die MDT-SADA-Klasse eine Reihe von Optionen bereit, die im folgendem beschrieben werden sollen.
 			Um die Optionen zu verwenden, werden sie in der ersten Zeile des Dokuments wie aus diesem Beispiel (\befehl[no]{documentclass[nologo]\{MDT-SADA\}}) ersichtlich verwendet.
 			Mehrere Optionen werden dabei per Komma getrennt.
 			\subsection{nologo}
@@ -248,7 +248,7 @@ Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{do
 				\end{itemize}
 	% Dummy Literaturverzeichnis
 	\begin{literaturverzeichnis}
-		\bibitem{Test}Winkler, D.; Liebezeit, Th.\\\emph{Vorlage für Studien- und Diplomarbeiten - Anleitung für die Benutzung}\\MDT 2006 (unveröffentlicht)
+		\bibitem{Test}Winkler, D.; Liebezeit, Th.\\\emph{Vorlage für Studien- und Diplomarbeiten - Anleitung für die Benutzung}\\MDT 2007 (unveröffentlicht)
 	\end{literaturverzeichnis}
 
 	% Index
