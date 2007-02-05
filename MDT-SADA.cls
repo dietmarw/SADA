@@ -48,7 +48,7 @@
 \@printfalse
 \DeclareOption{print}{%
 	\@printtrue%
-	\renewcommand{\extraBookmark}[2]{}%
+%	\renewcommand{\extraBookmark}[2]{}% deactivated since we have references to some bookmarks!
 }%
 
 % index-option
@@ -84,12 +84,14 @@
 \newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
 \ifpdfoutput{
 	\if@print
-		% nothing
+		\RequirePackage[pdftex,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
+		\renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}
 	\else
 		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
 	\fi
 }{%\else
 	\RequirePackage[dvips]{hyperref}
+	\if@print\renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}\else\fi
 }%\fi
 \ifpdfoutput{}{%
 	\IfFileExists{logos/MDT-logo.eps}%
@@ -197,6 +199,13 @@
 % #5 Abgabedatum
 % #6 Betreuer
 \newcommand{\titelseite}[6]{%
+% pdf document settings:
+  	\hypersetup{%
+		pdftitle = {#3},%
+		pdfsubject = {#4},%
+		pdfauthor = {#1},%
+		pdfcreator = {\LaTeX\ with package \flqq hyperref\frqq}%
+	}%
 	\extraBookmark{Titelseite}{titleanc}%
 	\thispagestyle{empty}%
 	\begin{titlepage}%
