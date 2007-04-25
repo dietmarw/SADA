@@ -97,7 +97,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 	\chapter{Einsatz}
 		\section{Allgemeines}
 			Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-			\lstinputlisting[linerange={8-8,33-33,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,255-256}]{MDT-SADA.tex}%
+			\lstinputlisting[linerange={8-8,33-33,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,262-263}]{MDT-SADA.tex}%
 	  
 			Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
@@ -141,7 +141,14 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
 				\begin{beispiel}{38-41}
 				Das folgende Beispiel zeigt die Definition der Titelseite dieses Dokuments.
 				Der Titel ist z.B. "`Vorlage für Studien- und Diplomarbeiten"' und der Untertitel "`Anleitung für die Benutzung"'. Das Matrikelnummernfeld wurde hier "`missbraucht"' um den zweiten Autor unterzubringen.
-				\end{beispiel}	
+				\end{beispiel}
+			\subsection{Eidesstattliche Erklärung}
+				Der Befehl \befehl{eidesstatt} fügt eine Seite für die eidesstattliche Erklärung ein.
+				Wird kein zusätlicher Parameter angegeben, dann wird automatisch eine Zeile mit Berlin als Ort und mit dem Datum der Dokumentenerstellung erzeugt.
+				Möchte man einen abweichenden Ort oder anderes Datum verwenden, dann ruft man den Befehl wie folgt auf: 
+				\begin{verbatim}
+				\eidesstatt{Musterstadt, den xx.xx.xxxx}
+				\end{verbatim}
 			\subsection{Inhaltsverzeichnis}
 				Der Befehl \befehl{inhaltsverzeichnis} setzt das Inhaltsverzeichnis.
 				Er entspricht fast vollständig dem Standardlatexbefehl \befehl[no]{tableofcontents}, erzeugt jedoch noch zusätzlich ein Lesezeichen bei der Ausgabe in eine pdf"=Datei.
@@ -232,7 +239,7 @@ Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{do
 				Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
 				Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-				\begin{beispiel}{250-252}
+				\begin{beispiel}{257-259}
 				Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
 				\end{beispiel}
 			\subsection{Interne Befehle}

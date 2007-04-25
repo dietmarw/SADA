@@ -248,10 +248,25 @@
         \end{center}%
 %
         \end{titlepage}%
-	%\newpage
+	\cleardoublepage
 	\makeHead{#1, \#\,#2}%
 }
 
+% Eidesstattliche Erklärung
+\newcommand{\eidesstatt}[1][Berlin, den \today]
+{%
+	~
+	\vspace{.3\textheight}
+	\begin{center}
+	\section*{Eidesstattliche Erklärung}
+	\end{center}
+	Die selbständige und eigenhändige Anfertigung versichere ich an Eides Statt.\\
+	
+	\bigskip
+	#1 
+}
+
+% Inhaltsverzeichnis
 \newcommand{\inhaltsverzeichnis}
 {%
 	\tableofcontents%
