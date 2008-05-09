@@ -7,9 +7,9 @@
 %% LaTeX-class for writing theses
 %%**************************************************************
 %% Version: filename    rev date       time     last modified by
-%%     $Id$ 
+%%     $Id$
 %%**************************************************************
-%% (The "Id" tag above is updated automatically if 
+%% (The "Id" tag above is updated automatically if
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
 %%*******************************************
@@ -37,7 +37,7 @@
   \@englishtrue%
   \PassOptionsToClass{british}{scrbook}
 }%
-	
+
 % onlytoc-option
 \newif\if@onlytoc
 \@onlytocfalse
@@ -47,7 +47,7 @@
 \newif\if@print
 \@printfalse
 \DeclareOption{print}{%
-	\@printtrue%
+    \@printtrue%
 %	\renewcommand{\extraBookmark}[2]{}% deactivated since we have references to some bookmarks!
 }%
 
@@ -75,31 +75,31 @@
 %%Behandlung der pdf-Option. Dies wird eingefuehrt, um Uebersetzungszeit
 %% zu sparen, wenn nur ein .ps erzeugt werden soll.
 \ifpdfoutput{
-	\RequirePackage[pdftex]{graphicx}
+    \RequirePackage[pdftex]{graphicx}
 }{%\else
-	\RequirePackage[dvips]{graphicx}
+    \RequirePackage[dvips]{graphicx}
 }%\fi
 \graphicspath{{logos/}{bilder/}}
 \newcommand{\MDTlogo}{\includegraphics[height=2cm]{MDT-logo}}
 \newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
 \ifpdfoutput{
-	\if@print
-		\RequirePackage[pdftex,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
-		\renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}
-	\else
-		\RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
-	\fi
+    \if@print
+        \RequirePackage[pdftex,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
+        \renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}
+    \else
+        \RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
+    \fi
 }{%\else
-	\RequirePackage[dvips]{hyperref}
-	\if@print\renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}\else\fi
+    \RequirePackage[dvips]{hyperref}
+    \if@print\renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}\else\fi
 }%\fi
 \ifpdfoutput{}{%
-	\IfFileExists{logos/MDT-logo.eps}%
-		{}%
-		{\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}}%
-	\IfFileExists{logos/TU-logo_gruen.eps}%
-		{}%
-		{\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
+    \IfFileExists{logos/MDT-logo.eps}%
+        {}%
+        {\renewcommand{\MDTlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\MDT}}}}%
+    \IfFileExists{logos/TU-logo_gruen.eps}%
+        {}%
+        {\renewcommand{\TUlogo}{\fbox{\parbox[b][2cm][c]{2cm}{Logo\\TU Berlin}}}}%
 }%
 \RequirePackage{lmodern}
 \RequirePackage[T1]{fontenc}
@@ -123,48 +123,48 @@
 %Redefinitionen---------------------------------
 %Literaturverzeichnis statt nur Literatur
 %\renewcommand{\refname}{Literaturverzeichnis}
-\if@english \else \AtBeginDocument{\renewcommand*\figurename{Bild}}\fi 
+\if@english \else \AtBeginDocument{\renewcommand*\figurename{Bild}}\fi
 
 %Umgebungen------------------------------------
 \newcommand{\includeBild}[3]%
 {\ifthenelse%
-		{\equal{#1}{}}%
-		{\mbox{\parbox[b][5cm][c]{0.7\textwidth}{\begin{center}no picture\end{center}}}}%
-		{\ifpdfoutput%
-			{\mbox{\includegraphics[#3]{#1}}}%
-			{\IfFileExists%
-				{bilder/#1.eps}%
-				{\mbox{\includegraphics[#3]{#1}}}%
-				{\fbox{\parbox[b][5cm][c]{0.7\textwidth}{%
-					\begin{center}%
-						\path{#1.eps} nicht gefunden,\bigskip\\
-						{\footnotesize\path{#1.{pdf,png,jpg}}\\
-						(\ldots wird nicht in \jobname.dvi angezeigt!)}%
-					\end{center}%
-						}%
-				}%
-			}%
-		}%
+        {\equal{#1}{}}%
+        {\mbox{\parbox[b][5cm][c]{0.7\textwidth}{\begin{center}no picture\end{center}}}}%
+        {\ifpdfoutput%
+            {\mbox{\includegraphics[#3]{#1}}}%
+            {\IfFileExists%
+                {bilder/#1.eps}%
+                {\mbox{\includegraphics[#3]{#1}}}%
+                {\fbox{\parbox[b][5cm][c]{0.7\textwidth}{%
+                    \begin{center}%
+                        \path{#1.eps} nicht gefunden,\bigskip\\
+                        {\footnotesize\path{#1.{pdf,png,jpg}}\\
+                        (\ldots wird nicht in \jobname.dvi angezeigt!)}%
+                    \end{center}%
+                        }%
+                }%
+            }%
+        }%
 }%
-	\captionsetup{indent=0pt,width=.9\textwidth}%
-	\caption{#2}%
-      	\ifthenelse%
-		{\equal{#1}{}}%
-		{}%
-		{\label{fig:#1}}%
+    \captionsetup{indent=0pt,width=.9\textwidth}%
+    \caption{#2}%
+          \ifthenelse%
+        {\equal{#1}{}}%
+        {}%
+        {\label{fig:#1}}%
 }
 
 \newcommand{\bild}[4][htb]{%
 \begin{figure}[#1]%
-	\centering%
-	\includeBild{#2}{#3}{#4}
+    \centering%
+    \includeBild{#2}{#3}{#4}
 \end{figure}%
 }
 
 \newcommand{\bildhier}[3]{%
 \begin{figure}[!ht]%
-	\centering%
-	\includeBild{#1}{#2}{#3}
+    \centering%
+    \includeBild{#1}{#2}{#3}
 \end{figure}%
 }
 
@@ -200,93 +200,93 @@
 % #6 Betreuer
 \newcommand{\titelseite}[6]{%
 % pdf document settings:
-  	\hypersetup{%
-		pdftitle = {#3},%
-		pdfsubject = {#4},%
-		pdfauthor = {#1},%
-		pdfcreator = {\LaTeX\ with package \flqq hyperref\frqq}%
-	}%
-	\extraBookmark{Titelseite}{titleanc}%
-	\thispagestyle{empty}%
-	\begin{titlepage}%
+      \hypersetup{%
+        pdftitle = {#3},%
+        pdfsubject = {#4},%
+        pdfauthor = {#1},%
+        pdfcreator = {\LaTeX\ with package \flqq hyperref\frqq}%
+    }%
+    \extraBookmark{Titelseite}{titleanc}%
+    \thispagestyle{empty}%
+    \begin{titlepage}%
         \MDTlogo\hfill\TUlogo\\%
-	\vfill%
-	\begin{center}%
-	  %Titel und Untertitel%
-	 \begin{spacing}{2.5}
-	 	{\textbf{{\Huge #3}\ifthenelse{\equal{#4}{}}{}{\\{\vspace*{3ex}\LARGE #4}}}}%
-		 \\[6ex]%
-	 \end{spacing}%
+    \vfill%
+    \begin{center}%
+      %Titel und Untertitel%
+     \begin{spacing}{2.5}
+         {\textbf{{\Huge #3}\ifthenelse{\equal{#4}{}}{}{\\{\vspace*{3ex}\LARGE #4}}}}%
+         \\[6ex]%
+     \end{spacing}%
          {\Large #1\\ \# #2}\\%
-	    \vfill%
-	    \vfill%
-	        {\LARGE #5}\\%
-		\vfill%
-		\begin{minipage}[t]{0.25\textwidth}%
-			\flushright\Large%
-			\if@english Supervisor\else Betreuer\fi:~%
-		\end{minipage}%
-		\vspace{0pt}~%
-		\begin{minipage}[t]{0.45\textwidth}%
-			\flushleft\Large%
-			#6%
-		\end{minipage}%
+        \vfill%
+        \vfill%
+            {\LARGE #5}\\%
+        \vfill%
+        \begin{minipage}[t]{0.25\textwidth}%
+            \flushright\Large%
+            \if@english Supervisor\else Betreuer\fi:~%
+        \end{minipage}%
+        \vspace{0pt}~%
+        \begin{minipage}[t]{0.45\textwidth}%
+            \flushleft\Large%
+            #6%
+        \end{minipage}%
                 \vfill%
                     {\Large%
-                     \if@english
-					 	Technical University of Berlin\\%
-						Faculty IV -- Electrical Engineering and Computer Science\\%
-						Institute of Energy and Automation Technology\\%
-						Department of Electronic Measurement and Diagnostic Technology%
-					\else
-					Technische Universität Berlin\\%
-                      Fakultät IV -- Elektrotechnik und Informatik\\%
-                      Institut für Energie- und Automatisierungstechnik\\%
-	              Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
-		             \fi%
+                    \if@english
+                        Technische Universität Berlin\\%
+                        School of Electrical Engineering and Computer Science\\%
+                        Department of Energy and Automation Technology\\%
+                        Chair of Electronic Measurement and Diagnostic Technology%
+                    \else
+                        Technische Universität Berlin\\%
+                        Fakultät IV -- Elektrotechnik und Informatik\\%
+                        Institut für Energie- und Automatisierungstechnik\\%
+                        Fachgebiet Elektronische Mess- und Diagnosetechnik\\%
+                    \fi%
                     }%
         \end{center}%
 %
         \end{titlepage}%
-	\cleardoublepage
-	\makeHead{#1, \#\,#2}%
+    \cleardoublepage
+    \makeHead{#1, \#\,#2}%
 }
 
 % Eidesstattliche Erklärung
 \newcommand{\eidesstatt}[1][Berlin, den \today]
 {%
-	~
-	\vspace{.3\textheight}
-	\begin{center}
-	\section*{Eidesstattliche Erklärung}
-	\end{center}
-	Die selbständige und eigenhändige Anfertigung versichere ich an Eides Statt.\\
-	
-	\bigskip
-	#1 
+    ~
+    \vspace{.3\textheight}
+    \begin{center}
+    \section*{Eidesstattliche Erklärung}
+    \end{center}
+    Die selbständige und eigenhändige Anfertigung versichere ich an Eides Statt.\\
+
+    \bigskip
+    #1
 }
 
 % Inhaltsverzeichnis
 \newcommand{\inhaltsverzeichnis}
 {%
-	\tableofcontents%
-	\extraBookmark{\if@english Contents\else Inhaltsverzeichnis\fi}{tocanc}%
-	\if@onlytoc\clearmydoublepage\else\fi%
+    \tableofcontents%
+    \extraBookmark{\if@english Contents\else Inhaltsverzeichnis\fi}{tocanc}%
+    \if@onlytoc\clearmydoublepage\else\fi%
 }
 
 \newcommand{\makeHead}[1]
 {%
-	\clearscrheadfoot%
-	%\renewcommand{\headfont}{\normalfont\sffamily\bfseries}%
-	\lehead{\leftmark}%
+    \clearscrheadfoot%
+    %\renewcommand{\headfont}{\normalfont\sffamily\bfseries}%
+    \lehead{\leftmark}%
         \rohead{\rightmark}%
         \ifoot{#1}
-	\ofoot{\pagemark}%
-	%\setheadsepline{.4pt}%
-	%\automark{subsection}%
-	\pagestyle{scrheadings}%
-	\deftripstyle{myChapterStyle}{}{}{}{#1}{}{\pagemark}
-	\renewcommand*{\chapterpagestyle}{myChapterStyle}
+    \ofoot{\pagemark}%
+    %\setheadsepline{.4pt}%
+    %\automark{subsection}%
+    \pagestyle{scrheadings}%
+    \deftripstyle{myChapterStyle}{}{}{}{#1}{}{\pagemark}
+    \renewcommand*{\chapterpagestyle}{myChapterStyle}
 }
 
 \newcommand{\clearmydoublepage}{\newpage{\pagestyle{myChapterStyle}\cleardoublepage}}
@@ -294,49 +294,49 @@
 \newlength{\FormelTabellenWeite}
 \newenvironment{formelzeichen}[1][0.1]
 {%
-	\@openrightfalse%
-	\setlength{\FormelTabellenWeite}{\textwidth}%
-	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\addchap*{\if@english Symbols\else Formelzeichen\fi}%
-	\extraBookmark{\if@english Symbols\else Formelzeichen\fi}{formulaanc}%
-	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
+    \@openrightfalse%
+    \setlength{\FormelTabellenWeite}{\textwidth}%
+    \addtolength{\FormelTabellenWeite}{-#1\textwidth}%
+    \addchap*{\if@english Symbols\else Formelzeichen\fi}%
+    \extraBookmark{\if@english Symbols\else Formelzeichen\fi}{formulaanc}%
+    \begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
-	\end{longtable}%
-	\@openrighttrue%
-	\clearmydoublepage
+    \end{longtable}%
+    \@openrighttrue%
+    \clearmydoublepage
 }%
 
 \newenvironment{abkuerzungen}[1][0.2]
 {%
-	\@openrightfalse%
-	\setlength{\FormelTabellenWeite}{\textwidth}%
-	\addtolength{\FormelTabellenWeite}{-#1\textwidth}%
-	\addchap*{\if@english Glossary\else Glossar\fi}%
-	\extraBookmark{\if@english Glossary\else Glossar\fi}{abranc}%
-	\begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
+    \@openrightfalse%
+    \setlength{\FormelTabellenWeite}{\textwidth}%
+    \addtolength{\FormelTabellenWeite}{-#1\textwidth}%
+    \addchap*{\if@english Glossary\else Glossar\fi}%
+    \extraBookmark{\if@english Glossary\else Glossar\fi}{abranc}%
+    \begin{longtable}{p{#1\textwidth}p{\FormelTabellenWeite}}
 }{%
-	\end{longtable}%
-	\@openrighttrue%
-	\clearmydoublepage
+    \end{longtable}%
+    \@openrighttrue%
+    \clearmydoublepage
 }%
 
 \newenvironment{literaturverzeichnis}
 {\begin{thebibliography}{99}%
-	\addcontentsline{toc}{chapter}{\if@english Bibliography\else Literatur\fi}%
+    \addcontentsline{toc}{chapter}{\if@english Bibliography\else Literatur\fi}%
 %	\extraBookmark{\if@english Bibliography\else Literatur\fi}{litanc}
 }
 {\end{thebibliography}}
 
 \newcommand{\indexverzeichnis}{%
-	%\ifthenelse{\equal{\RequireIndex}{}}
-		%{Fehler erzeugen, oder nix}
-		%{untenstehende Befehle}
-	\cleardoublepage%
-	\phantomsection%
-	\addcontentsline{toc}{chapter}{Index}%
-	\printindex%
+    %\ifthenelse{\equal{\RequireIndex}{}}
+        %{Fehler erzeugen, oder nix}
+        %{untenstehende Befehle}
+    \cleardoublepage%
+    \phantomsection%
+    \addcontentsline{toc}{chapter}{Index}%
+    \printindex%
 }
-	
+
 % Abstand der Paragraphen
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.5mm }
