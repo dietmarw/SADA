@@ -84,7 +84,7 @@
 \newcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_gruen}}
 \ifpdfoutput{
     \if@print
-        \RequirePackage[pdftex,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
+        \RequirePackage[pdftex,plainpages=false,pdfpagelabels,pdfborder={0 0 0},hyperfootnotes=false]{hyperref}
         \renewcommand{\TUlogo}{\includegraphics[height=2cm]{TU-logo_sw}}
     \else
         \RequirePackage[pdftex,colorlinks=true,linkcolor=blue,urlcolor=blue,plainpages=false,pdfpagelabels,hyperfootnotes=false]{hyperref}
