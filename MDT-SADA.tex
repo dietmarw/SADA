@@ -1,23 +1,23 @@
 %**************************************************************
 %% Version: filename    rev date       time     last modified by
-%%     $Id$ 
+%%     $Id$
 %%**************************************************************
-%% (The "Id" tag above is updated automatically if 
+%% (The "Id" tag above is updated automatically if
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
-\documentclass[index]{MDT-SADA}  
-   
+\documentclass[index]{MDT-SADA}
+
 % Zusätzliches Packet für diese Datei und zugehörige Einstellungen
 \usepackage{listings}
- 
-\lstset{% 
-    tabsize=2,% 
+
+\lstset{%
+    tabsize=2,%
     basicstyle=\footnotesize\ttfamily,%
-    %numbers=left,% 
+    %numbers=left,%
      %numberfirstline,%
     breaklines=true,%
     breakatwhitespace=true,%
-    %linewidth=0.9\textwidth,% 
+    %linewidth=0.9\textwidth,%
     %xleftmargin=0.05\textwidth,%
     frame=tlrb,%
     captionpos=b%
@@ -31,9 +31,9 @@
 \newcommand{\umgebung}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Umgebung!#2}\index{#2}}{}\texttt{#1}}
 
 \begin{document}
-    %Schaltet auf römische Seitenzahlen um 
+    %Schaltet auf römische Seitenzahlen um
     \frontmatter
-    
+
     %Setzt die Titelseite
     \titelseite{Dietmar Winkler}{Thomas Liebezeit}{Vorlage für Studien- und Diplomarbeiten}
         {Anleitung für die Benutzung}
@@ -41,8 +41,8 @@
         {N.N.}
 
     %Erzeugt das Inhaltsverzeichnis (inkl. Link in der pdf-Datei)
-    \inhaltsverzeichnis 
-    
+    \inhaltsverzeichnis
+
     %Erzeugen der Seite mit den Formelzeichen
     \begin{formelzeichen}
         $\theta$ & Ein Formelzeichen.\\
@@ -58,7 +58,7 @@
         OP	& Operationsverstärker \\
         I/O	& Input-Output Schnittstelle\\
         MUX	& Multiplexer\\
-        S\&H	& Sample-and-Hold-Baustein\\	
+        S\&H	& Sample-and-Hold-Baustein\\
     \end{abkuerzungen}
      %Schaltet auf arabische Seitenzahlen um.
     \mainmatter
@@ -66,12 +66,15 @@
     %Hier beginnt unser Text ;-)
     \chapter{Einleitung}
         Dieses Dokument beschreibt den Einsatz der \LaTeX-Vorlage für Studien- und Diplomarbeiten des Instituts für Elektronische Mess- und Diagnosetechnik der Technischen Universität Berlin.
-    
-        Bei Fragen und Problemen mit dieser Vorlage wenden sie sich bitte per E-Mail an die Autoren dieses Dokuments\footnote{Dietmar Winkler (\texttt{Dietmar.Winkler@tu-berlin.de}) oder\\ Thomas Liebezeit (\texttt{Thomas.Liebezeit@tu-berlin.de})}
-        
+
+        Bei Fragen zu oder Problemen mit dieser Vorlage, wenden sie sich bitte an das Sekretariat des Fachgebiets MDT.
+        Hier wird man Sie an den aktuellen Ansprechpartner weiterleiten.
+
+        \url{http://www.mdt.tu-berlin.de/kontakt}
+
     \chapter{Installation}
         Die Vorlage besteht aus der Klassendatei \texttt{MDT-SADA.cls}, den offiziellen Logos unter "`logos"' .
-        Des Weiteren wird diese Anleitung und ein Minimalbeispiel für eine Diplomarbeit mitgeliefert. 
+        Des Weiteren wird diese Anleitung und ein Minimalbeispiel für eine Diplomarbeit mitgeliefert.
         Zusätzlich besteht die Installation noch aus dem Platzhalterordner "`bilder"', als Speicherort für einzubindende Bilder und Grafiken.
 
         Die Installation erfolgt am einfachsten durch entpacken des ausgelieferten zip-Archivs in ein beliebiges Verzeichnis.
@@ -93,18 +96,18 @@
 
 Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distributionen (MiK\TeX , te\TeX , \TeX Live) enthalten bzw. lassen sich leicht nachinstallieren.
 
-        
+
     \chapter{Einsatz}
         \section{Allgemeines}
             Der Einsatz ist sehr einfach, es muss lediglich das folgende Schema übernommen werden.
-            \lstinputlisting[linerange={8-8,33-33,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,262-263}]{MDT-SADA.tex}%
-      
+            \lstinputlisting[linerange={8-8,33-33,35-35,38-41,44-44,47-50,53-55,62-62,65-65,68-68,265-266}]{MDT-SADA.tex}%
+
             Nach dem Befehl \befehl[no]{chapter\{Einleitung\}} folgt der Text des Dokuments.
 
             Die Klasse ist primär für die Verwendung von pdflatex ausgelegt, bei dem als Ausgabe pdf"=Dateien erzeugt werden.
             Wird das normale latex verwendet (Ausgabe dvi"=Datei), wird dies automatisch erkannt und es werden die zusätzlichen Features wie pdf"=Lesezeichen abgeschaltet.
             Aufgrund der Unterschiede in den von beiden LaTeX-Varianten unterstützten Grafikformaten werden bei nicht pdf"=Ausgabe die Bilder durch leere Rahmen ersetzt.
-            
+
         \section{Optionen}
             Es können sämtliche Optionen von KOMA-Skript verwendet werden (wie z.B. \option{oneside} zum erstellen von einseitig bedruckten Dokumenten, Standard ist doppelseitig).
             Zuätzlich stellt die MDT-SADA-Klasse eine Reihe von Optionen bereit, die im folgendem beschrieben werden sollen.
@@ -130,7 +133,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
                 Für diejenigen, welche die Arbeit in englisch verfassen möchten,  steht die Option \option{english} zur Verfügung.
                 Sämtliche Standardüberschriften werden dann in englischer Sprache  (genauer gesagt "`British English"') angegeben (z.B. "`Symbols"' statt "`Abkürzungen"').
                 Das gleiche gilt auch für das Datumsformat.
-                
+
         \section{Befehle}
             \subsection{Titelseite}
                 Der Befehl \befehl{titelseite} erzeugt die definierte Titelseite.
@@ -145,19 +148,19 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
             \subsection{Eidesstattliche Erklärung}
                 Der Befehl \befehl{eidesstatt} fügt eine Seite für die eidesstattliche Erklärung ein.
                 Wird kein zusätlicher Parameter angegeben, dann wird automatisch eine Zeile mit Berlin als Ort und mit dem Datum der Dokumentenerstellung erzeugt.
-                Möchte man einen abweichenden Ort oder anderes Datum verwenden, dann ruft man den Befehl wie folgt auf: 
+                Möchte man einen abweichenden Ort oder anderes Datum verwenden, dann ruft man den Befehl wie folgt auf:
                 \begin{verbatim}
                 \eidesstatt{Musterstadt, den xx.xx.xxxx}
                 \end{verbatim}
             \subsection{Inhaltsverzeichnis}
                 Der Befehl \befehl{inhaltsverzeichnis} setzt das Inhaltsverzeichnis.
                 Er entspricht fast vollständig dem Standardlatexbefehl \befehl[no]{tableofcontents}, erzeugt jedoch noch zusätzlich ein Lesezeichen bei der Ausgabe in eine pdf"=Datei.
-                
+
                 Möchte man die Anzeigetiefe des Inhaltsverzeichnises bis auf die \texttt{subsubsection}-Ebene erweitern, sollten einfach die folgenden zwei Befehle in der Präambel des \LaTeX-Dokuments gesetzt werden:
 \begin{verbatim}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
-\end{verbatim} 
+\end{verbatim}
 
 \subsection{Formelzeichen}
                 Für die Seite mit den Formelzeichen steht die neue Umgebung \umgebung{formelzeichen} bereit.
@@ -167,7 +170,7 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
                 Dem schließt sich der erklärende Text an, der mit den beiden Zeichen "`$\backslash\backslash$""' beendet wird.
 
                 Die Umgebung besitzt einen optionalen Parameter, der die Breite der vorderen spalte festlegt.
-                Die Standardeinstellung ist "`0.1"' . 
+                Die Standardeinstellung ist "`0.1"' .
 
                 \begin{beispiel}{47-50}
                 In diesem Beispiel wird ein Formelzeichen und eine Matrix definiert.
@@ -190,18 +193,18 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
                 Sie vereinfachen und vereinheitlichen die Verwendung von Bildern und sollten deshalb ausschließlich verwendet werden.
 
                 Ein weiterer Vorteil bei der Verwendung der Befehle liegt in der Tatsache, daß für die auf diesem Weg eingefügten Bilder gleich entsprechende Label für Verweise angelegt werden.
-                Bilder sollten immer \textbf{ohne Endung} eingebunden werden (\path{bild.png} als \path{bild}), wobei dann der Verweis als "`fig:bild"' bereit steht. 
+                Bilder sollten immer \textbf{ohne Endung} eingebunden werden (\path{bild.png} als \path{bild}), wobei dann der Verweis als "`fig:bild"' bereit steht.
 
-                Bilder werden immer im Ordner \verzeichnis{bilder/} erwartet, der parallel zur Hauptdatei liegen muss. 
+                Bilder werden immer im Ordner \verzeichnis{bilder/} erwartet, der parallel zur Hauptdatei liegen muss.
                 Die beiden Logos müssen im Verzeichnis \verzeichnis{logos/} liegen.
-            
+
                 \subsubsection{Bild}
                     Der Befehl \befehl{bild} dient zum einbinden eines einzelnen Bildes.
                     Er besitzt drei Parameter.
 
                     Parameter eins ist der Name des Bildes.
                     Der zweite Parameter enthält die Bildunterschrift und der dritte Anweisungen für die Formatierung des Bildes.
-                    
+
                     \bild{MDT-logo}{Das Institutslogo.}{width=\textwidth}
                     \begin{beispiel}{}
                         Als Beispiel mag die Einbindung von Bild~\ref{fig:MDT-logo} dienen.
@@ -214,15 +217,15 @@ Alle aufgeführten Pakete sind entweder schon in den Standard-\LaTeX-Distribution
                     Der Befehl \befehl{doppelbild} setzt zwei Bilder mit eigener Nummerierung neben einander.
                     Die einzelnen Parameter entsprechen denen des Befehls \befehl{bild}, nur daß sie jetzt für zwei Bilder angegeben werden müssen.
                     Parameter eins ist der Dateiname des ersten Bildes, der zweite Parameter ist die zugehörige Bildunterschrift und der dritte Parameter dient der Formatierung des ersten Bildes.
-                    Parameter vier enthält den Dateinamen des zweiten Bildes. 
+                    Parameter vier enthält den Dateinamen des zweiten Bildes.
                     Der fünfte Parameter beinhaltet die Bildunterschrift des zweiten Bildes und der sechste seine Formatierung.
-                    
+
                 \doppelbild{TU-logo_gruen}{Das Logo der TU Berlin.}{width=\textwidth}{TU-logo_gruen}{Das Logo der Technischen Universität Berlin}{width=\textwidth}
                     \begin{beispiel}{}
                         Für die Darstellung des folgenden Doppelbildes wurde der Befehl \befehl[no]{doppelbild\{TU-logo\_gruen\}\{Das Logo der TU Berlin.\}\{width=\befehl[no]{textwidth}\}\{TU-logo\_gruen\}\{Das Logo der Technischen Universität Berlin\}\{width=\befehl[no]{textwidth}\}} verwendet.
                     \end{beispiel}
 \subsubsection{Bild hier plazieren}
-Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, außer dass die Standardplazierungsargumente \texttt{[htb]} auf \texttt{[!ht]} ($\rightarrow$ plaziere Bild hier auch wenn's besch\ldots eiden aussieht) gesetzt werden. Bei der Verwendung des Befehls \befehl[no]{bildhier} sollte man jedoch vorsichtig sein, da hier eine Bildplazierung vorgenommen wird, welche gegen die normalen Layoutrichtlinien \LaTeX s verstoßen. 
+Der Befehl \befehl{bildhier} ist mit dem Befehl \befehl[no]{bild} identisch, außer dass die Standardplazierungsargumente \texttt{[htb]} auf \texttt{[!ht]} ($\rightarrow$ plaziere Bild hier auch wenn's besch\ldots eiden aussieht) gesetzt werden. Bei der Verwendung des Befehls \befehl[no]{bildhier} sollte man jedoch vorsichtig sein, da hier eine Bildplazierung vorgenommen wird, welche gegen die normalen Layoutrichtlinien \LaTeX s verstoßen.
 
 Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{doppelbild} noch die Möglichkeit die Plazierung durch ein Optionales Plazierungsargument zu steuern.
 
@@ -239,7 +242,7 @@ Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{do
                 Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
                 Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
-                \begin{beispiel}{257-259}
+                \begin{beispiel}{260-262}
                 Das Literaturverzeichnis dieses Dokuments wurde als dem folgendem Quelltext erzeugt.
                 \end{beispiel}
             \subsection{Interne Befehle}
