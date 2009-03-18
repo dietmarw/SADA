@@ -5,7 +5,7 @@
 %% (The "Id" tag above is updated automatically if
 %% 	svn propset svn:keywords "Id" <filename>
 %% was set.)
-\documentclass[index]{MDT-SADA}
+\documentclass[index,openany]{MDT-SADA}
 
 % Zusätzliches Packet für diese Datei und zugehörige Einstellungen
 \usepackage{listings}
@@ -28,7 +28,7 @@
 \newenvironment{beispiel}[1]{\hfill\begin{minipage}[c]{0.8\textwidth}Beispiel:\small\ifthenelse{\equal{#1}{}}{\\}{\lstinputlisting[linerange={#1}]{MDT-SADA.tex}}}{\end{minipage}\hfill}
 \newcommand{\verzeichnis}[1]{\path{#1}}
 \newcommand{\option}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Option!#2}\index{#2}}{}\mbox{'#2'}}
-\newcommand{\umgebung}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Umgebung!#2}\index{#2}}{}\texttt{#1}}
+\newcommand{\umgebung}[2][x]{\ifthenelse{\equal{#1}{x}}{\index{Umgebung!#2}\index{#2}}{}\texttt{#2}}
 
 \begin{document}
     %Schaltet auf römische Seitenzahlen um
@@ -238,8 +238,8 @@ Allgemein gibt es außerdem bei den Befehlen \befehl[no]{bild} und \befehl[no]{do
 
                 Nähere Hinweise zur Erzeugung eines Indexes werden im Abschnitt zur \option{index} gegeben.
             \subsection{Literaturverzeichnis}
-                Für das Literaturverzeichnis steht die Umgebung \umgebung{literatur} zur Verfügung.
-                Sie wird durch die beiden Befehle \befehl[no]{begin\{literatur\}} und \befehl[no]{end\{literatur\}} begrenzt.
+                Für das Literaturverzeichnis steht die Umgebung \umgebung{literaturverzeichnis} zur Verfügung.
+                Sie wird durch die beiden Befehle \befehl[no]{begin\{literaturverzeichnis\}} und \befehl[no]{end\{literaturverzeichnis\}} begrenzt.
                 Innerhalb der Umgebung werden die einzelnen Literaturverweise mit dem Befehl \befehl{bibitem} gesetzt.
 
                 \begin{beispiel}{260-262}
