@@ -56,7 +56,7 @@
 \newif\if@index
 \@indexfalse
 \DeclareOption{index} {%
-  \@nologotrue%
+  \@indextrue%
   \renewcommand{\RequireIndex}{\RequirePackage{makeidx}\makeindex}%
 }%
 
